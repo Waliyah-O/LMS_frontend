@@ -1,96 +1,20 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-// import { useFormik } from 'formik';
-// import * as Yup from 'yup';
-// import { userActions } from '../../../redux/actions';
-// // import CustomInputs from '../../customInputs/CustomInputs';
-
-// const Step1 = () => {
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-
-//   const formData = useSelector((state) => state);
-
-//   const formik = useFormik({
-//     initialValues: {
-//       firstName: formData.firstName,
-//       lastName: formData.lastName,
-//     },
-//     validationSchema: Yup.object({
-//       firstName: Yup.string().required('First Name is required'),
-//       lastName: Yup.string().required('Last Name is required'),
-//     }),
-//     onSubmit: handleSubmit,
-//   });
-
-//   const handleChange = (e) => {
-//     formik.handleChange(e);
-//   };
-
-//   function handleSubmit() {
-//     dispatch(userActions.chooseFirstName(formik.values.firstName));
-//     dispatch(userActions.chooseLastName(formik.values.lastName));
-//     dispatch(userActions.completedStep('step1'));
-//     navigate('./step2');
-//   }
-
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label className="label">
-//             <span className="label-text">First Name</span>
-//           </label>
-//           <input
-//             className="input input-bordered w-full "
-//             type="text"
-//             name="firstName"
-//             value={formik.values.firstName}
-//             onChange={handleChange}
-//             onBlur={formik.handleBlur}
-//           />
-//           {formik.touched.firstName && formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
-//         </div>
-
-//         <div>
-//           <label className="label">
-//             <span className="label-text">Last Name</span>
-//           </label>
-//           <input
-//             className="input input-bordered w-full "
-//             type="text"
-//             name="lastName"
-//             value={formik.values.lastName}
-//             onChange={handleChange}
-//             onBlur={formik.handleBlur}
-//           />
-//           {formik.touched.lastName && formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-//         </div>
-//         <div className="flex justify-center">
-//           <input className="btn w-full max-w-xs text-white" type="submit" value="Next" />
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Step1;
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { userActions } from '../../../redux/actions';
+import { chooseFirstName, chooseLastName, completeStep } from '../../../redux/actions';
 
 const Step1 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const formData = useSelector((state) => state);
+  const firstName= useSelector((state) => state.firstName)
+  const lastName= useSelector((state) => state.lastName)
 
   const formik = useFormik({
     initialValues: {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
+      firstName: firstName,
+      lastName: lastName,
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required('First Name is required'),
@@ -99,14 +23,11 @@ const Step1 = () => {
     onSubmit: handleSubmit,
   });
 
-  const handleChange = (e) => {
-    formik.handleChange(e);
-  };
 
-  function handleSubmit() {
-    dispatch(userActions.chooseFirstName(formik.values.firstName));
-    dispatch(userActions.chooseLastName(formik.values.lastName));
-    dispatch(userActions.completedStep('step1'));
+  function handleSubmit(values) {
+    dispatch(chooseFirstName(values.firstName));
+    dispatch(chooseLastName(values.lastName));
+    dispatch(completeStep('step1'));
     navigate('./step2');
   }
 
@@ -124,7 +45,7 @@ const Step1 = () => {
             name="firstName"
             placeholder="Enter your first name"
             value={formik.values.firstName}
-            onChange={handleChange}
+            onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
           {formik.touched.firstName && formik.errors.firstName ? (
@@ -143,7 +64,7 @@ const Step1 = () => {
             name="lastName"
             placeholder="Enter your last name"
             value={formik.values.lastName}
-            onChange={handleChange}
+            onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
           {formik.touched.lastName && formik.errors.lastName ? (

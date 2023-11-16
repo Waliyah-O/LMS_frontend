@@ -2,18 +2,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { userActions } from '../../../redux/actions';
+import { chooseAge, chooseGender, completeStep } from '../../../redux/actions';
 
 const Step3 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const formData = useSelector((state) => state);
+  const age = useSelector((state) => state.age);
+  const gender = useSelector((state) => state.firstName);
 
   const formik = useFormik({
     initialValues: {
-      age: formData.age,
-      gender: formData.gender,
+      age: age,
+      gender: gender,
     },
     validationSchema: Yup.object({
       age: Yup.string().required('Age is required'),
@@ -27,9 +28,9 @@ const Step3 = () => {
   };
 
   function handleSubmit() {
-    dispatch(userActions.chooseAge(formik.values.age));
-    dispatch(userActions.chooseGender(formik.values.gender));
-    dispatch(userActions.completedStep('step3'));
+    dispatch(chooseAge(formik.values.age));
+    dispatch(chooseGender(formik.values.gender));
+    dispatch(completeStep('step3'));
     navigate('./step4');
   }
 
@@ -65,15 +66,13 @@ const Step3 = () => {
           />
           {formik.touched.gender && formik.errors.gender ? <div>{formik.errors.gender}</div> : null}
         </div>
-        <div className="flex flex-row-reverse items-center justify-between mt-4 mx-4 ">
-          <div className="">
-            <input className="btn w-32 text-white" type="submit" value="Next" />
-          </div>
-
-          <Link className="" to="/">
-            <button className="btn w-32 text-white">Back</button>
-          </Link>
+        <div className="flex justify-center">
+          <input className="mt-4 btn w-full  text-white" type="submit" value="Next" />
         </div>
+
+        <Link className="flex justify-center" to="/step2">
+          <button className="mt-2 btn w-full  text-white">Back</button>
+        </Link>
       </form>
     </div>
   );

@@ -2,18 +2,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { userActions } from '../../../redux/actions';
+import { choosePhoneNumber, chooseAddress, completeStep } from '../../../redux/actions';
 
 const Step4 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const formData = useSelector((state) => state);
+  const phoneNumber = useSelector((state) => state.phoneNumber);
+  const address = useSelector((state) => state.address);
 
   const formik = useFormik({
     initialValues: {
-      age: formData.age,
-      gender: formData.gender,
+      phoneNumber: phoneNumber,
+      address: address,
     },
     validationSchema: Yup.object({
       age: Yup.string().required('Age is required'),
@@ -27,9 +28,9 @@ const Step4 = () => {
   };
 
   function handleSubmit() {
-    dispatch(userActions.chooseEmail(formik.values.firstName));
-    dispatch(userActions.choosePassword(formik.values.gender));
-    dispatch(userActions.completedStep('step4'));
+    dispatch(choosePhoneNumber(formik.values.phoneNumber));
+    dispatch(chooseAddress(formik.values.address));
+    dispatch(completeStep('step4'));
     navigate('./result');
   }
 
