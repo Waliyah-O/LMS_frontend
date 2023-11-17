@@ -1,9 +1,9 @@
-import GettingStarted from '../components/Forms/Admin/GettingStarted';
+import CompleteProfile from '../components/Forms/Admin/CompleteProfile';
 
 const SignUp = () => {
   return (
     <div>
-      <GettingStarted />
+      <CompleteProfile />
     </div>
   );
 };

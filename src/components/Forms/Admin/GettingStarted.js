@@ -96,7 +96,7 @@ const GettingStarted = () => {
       </Formik>
       <p>
         Have an account?{' '}
-        <Link to="#" className="text-green-500">
+        <Link to="./completeprofile" className="text-green-500">
           Sign In
         </Link>
       </p>
