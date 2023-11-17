@@ -1,7 +1,11 @@
-import AuthLayout from '../components/layouts/AuthLayout';
+import GettingStarted from '../components/Forms/Admin/GettingStarted';
 
-const signUp = () => {
-  return <AuthLayout>SignUpPage</AuthLayout>;
+const SignUp = () => {
+  return (
+    <div>
+      <GettingStarted />
+    </div>
+  );
 };
 
-export default signUp;
+export default SignUp;

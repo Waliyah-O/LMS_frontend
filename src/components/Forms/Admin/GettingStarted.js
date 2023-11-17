@@ -1,5 +1,5 @@
-import AuthLayout from '../components/layouts/AuthLayout';
-import Input from '../components/customInputs/CustomInputs';
+import AuthLayout from '../../layouts/AuthLayout';
+import Input from '../../customInputs/CustomInputs';
 import { Link } from 'react-router-dom';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
