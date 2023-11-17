@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { Bullets } from '../../assets';
-import { hasCaps, hasDigit, hasSpecialCharacter } from '../../constants';
+import { ReactComponent as Bullets } from '../../assets/svg/formvalue-error.svg';
+// import { ReactComponent as Check } from '../../assets/svg/input-user-state.svg';
+import { hasCaps, hasDigit, hasSpecialCharacter } from '../../utils/constants';
 
 const FormError = ({ errors, name, value }) => {
   return (
@@ -9,27 +9,35 @@ const FormError = ({ errors, name, value }) => {
         <div className={'ml-3 mt-2'}>
           {errors && errors[name] && (
             <>
-              <div
-                className={`flex text-labels ${value.length >= 8 ? 'text-neutral-400' : 'text-neutral-200'} items-center mb-2`}
-              >
-                <Bullets fill={value.length >= 8 ? '#56BC7C' : '#B0C1DA'} />{' '}
-                <span className={'ml-2'}>Minimum of 8 characters</span>
+
+              <div className={`flex text-labels ${value.length >= 8 ? 'text-green-600' : 'text-neutral-200'} items-center mb-2`}>
+                <Bullets fill={value.length > 8 ? '#56BC7C' : '#d45757'} />
+                <span className={` ml-2 ${value.length > 8 ? 'text-green-600' : 'text-red-400'}`}>
+                  Minimum of 8 characters
+                </span>
               </div>
-              <div className={`flex text-labels ${hasCaps(value) ? 'text-neutral-400' : 'text-neutral-200'}  items-center mb-2`}>
-                <Bullets fill={hasCaps(value) ? '#56BC7C' : '#B0C1DA'} />
-                <span className={'ml-2'}>At least 1 uppercase letter</span>
+
+              <div className={`flex text-labels ${hasCaps(value) ? 'text-green-600' : 'text-neutral-200'}  items-center mb-2`}>
+                <Bullets fill={hasCaps(value) ? '#56BC7C' : '#d45757'} />
+                <span className={`ml-2 ${hasCaps(value) ? 'text-green-600' : 'text-red-400'}`}>
+                  At least 1 uppercase letter
+                </span>
               </div>
+
               <div
                 className={`flex text-labels ${
-                  hasSpecialCharacter(value) ? 'text-neutral-400' : 'text-neutral-200'
+                  hasSpecialCharacter(value) ? 'text-green-600' : 'text-neutral-200'
                 } items-center mb-2`}
               >
-                <Bullets fill={hasSpecialCharacter(value) ? '#56BC7C' : '#B0C1DA'} />
-                <span className={'ml-2'}>At least 1 special character</span>
+                <Bullets fill={hasSpecialCharacter(value) ? '#56BC7C' : '#d45757'} />
+                <span className={`ml-2 ${hasSpecialCharacter(value) ? 'text-green-600' : 'text-red-400'}`}>
+                  At least 1 special character
+                </span>
               </div>
-              <div className={`flex text-labels  ${hasDigit(value) ? 'text-neutral-400' : 'text-neutral-200'} items-center mb-2`}>
-                <Bullets fill={hasDigit(value) ? '#56BC7C' : '#B0C1DA'} />
-                <span className={'ml-2'}></span>At least 1 number
+
+              <div className={`flex text-labels  ${hasDigit(value) ? 'text-green-600' : 'text-neutral-200'} items-center mb-2`}>
+                <Bullets fill={hasDigit(value) ? '#56BC7C' : '#d45757'} />
+                <span className={`ml-2 ${hasDigit(value) ? 'text-green-600' : 'text-red-400'}`}>At least 1 number</span>
               </div>
             </>
           )}

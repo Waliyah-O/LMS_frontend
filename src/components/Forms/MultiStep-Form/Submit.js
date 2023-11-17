@@ -13,7 +13,7 @@ import {
 } from '../../../redux/actions';
 
 const Submit = () => {
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const dispatchAll = () => {

@@ -1,10 +1,9 @@
-import { FC, ReactElement } from 'react';
-import FormError from '../formError';
+import FormError from '../error/FormError';
 
-const Input = ({ name, type = 'text', label, formik, info, icon, cssStyles, ...props }) => {
+const Input = ({ name, type = 'text', label, formik, info, icon, ...props }) => {
   return (
-    <div className="input">
-      <label htmlFor={props.id} className={'text-neutral-700 font-normal'}>
+    <div>
+      <label htmlFor={props.id} className='label-text'>
         {label}
       </label>
       <div
@@ -14,7 +13,7 @@ const Input = ({ name, type = 'text', label, formik, info, icon, cssStyles, ...p
             : 'focus-within:shadow-active focus-within:border-primary-500 '
         }${!props?.disabled ? (props?.value ? 'border-neutral-600' : 'border-neutral-300') : ''}`}
       >
-        <input type={type} name={name} {...props} className={`${cssStyles} rounded-lg focus:outline-none text-neutral-700`} />
+        <input type={type} name={name} {...props} className='input input-bordered w-full' />
         {icon && icon}
       </div>
 
