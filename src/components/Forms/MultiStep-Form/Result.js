@@ -1,83 +1,41 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
-import { chooseFirstName, chooseLastName, completeStep } from '../../../redux/actions';
-// import CustomInputs from '../../customInputs/CustomInputs';
+import { useSelector } from 'react-redux';
 
-const Step1 = () => {
-  const dispatch = useDispatch();
+import { Link, useNavigate } from 'react-router-dom';
+
+const Result = () => {
+  const state = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const firstName = useSelector((state) => state.firstName);
-  const lastName = useSelector((state) => state.firstName);
-
-  const formik = useFormik({
-    initialValues: {
-      firstName: firstName,
-      lastName: lastName,
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string().required('First Name is required'),
-      lastName: Yup.string().required('Last Name is required'),
-    }),
-    onSubmit: handleSubmit,
-  });
-
-  function handleSubmit(values) {
-    dispatch(chooseFirstName(values.firstName));
-    dispatch(chooseLastName(values.lastName));
-    dispatch(completeStep('step1'));
-    navigate('./step2');
-  }
+  const onSubmit = () => {
+    navigate('./submit');
+  };
 
   return (
-    <Formik>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="md-4">
-          <label className="label">
-            <span className="label-text">First Name</span>
-          </label>
-          <input
-            id="firstName"
-            className="input input-bordered w-full"
-            type="text"
-            name="firstName"
-            placeholder="Enter your first name"
-            value={formik.values.firstName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <div className="text-red-700">
-            {formik.touched.firstName && formik.errors.firstName ? <p>{formik.errors.firstName}</p> : null}
-          </div>
-        </div>
+    <>
+      <h1 className="text-4xl	text-center">Review</h1>
+      <div className="h-5 divider"></div>
+      <div className="">
+        <p className="text-2xl">
+          Your Name: {state.firstName} {state.lastName}
+        </p>
+        <p className="text-2xl">Your Email: {state.email} </p>
+        <p className="text-2xl">Your Password: {state.password} </p>
+        <p className="text-2xl">Your Age: {state.age} </p>
+        <p className="text-2xl">Your Gender: {state.gender} </p>
+        <p className="text-2xl">Your Phone Number: {state.phoneNumber} </p>
+        <p className="text-2xl">Your Address: {state.address} </p>
+      </div>
 
-        <div className="mb-4">
-          <label className="label">
-            <span className="label-text">Last Name</span>
-          </label>
-          <input
-            id="lastName"
-            className="input input-bordered w-full"
-            type="text"
-            name="lastName"
-            placeholder="Enter your last name"
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <div className="text-red-700">
-            {formik.touched.lastName && formik.errors.lastName ? <p>{formik.errors.lastName}</p> : null}
-          </div>
-        </div>
-
+      <form onSubmit={onSubmit}>
         <div className="flex justify-center">
-          <input className="btn w-full max-w-xs text-white" type="submit" value="Next" />
+          <input className="mt-4 btn w-full max-w-xs text-white" type="submit" value="Submit" />
         </div>
+        <Link className="flex justify-center" to="/step2/step3/step4">
+          <button className="mt-2 btn w-full max-w-xs text-white">Back</button>
+        </Link>
       </form>
-    </Formik>
+    </>
   );
 };
 
-export default Step1;
+export default Result;

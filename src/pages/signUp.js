@@ -23,7 +23,7 @@ const SignUp = () => {
               }
             />
             <Route
-              path="/step2"
+              path="step2"
               element={
                 <>
                   <StepCounter /> <Step2 />
@@ -39,7 +39,7 @@ const SignUp = () => {
               }
             />
             <Route
-              path="/step3/step4"
+              path="/step2/step3/step4"
               element={
                 <>
                   <StepCounter /> <Step4 />
@@ -47,7 +47,7 @@ const SignUp = () => {
               }
             />
             <Route path="/step2/step3/step4/result" element={<Result />} />
-            <Route path="/step2/step3/step4/result" element={<Submit />} />
+            <Route path="/step2/step3/step4/result/submit" element={<Submit />} />
           </Routes>
         </div>
       </div>

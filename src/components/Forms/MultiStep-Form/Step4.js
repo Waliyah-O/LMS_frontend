@@ -39,32 +39,32 @@ const Step4 = () => {
       <form onSubmit={handleSubmit}>
         <div className="mx auto form-control w-full ">
           <label className="label">
-            <span className="label-text">Age: </span>
+            <span className="label-text">Phone Number: </span>
           </label>
           <input
             className="input input-bordered w-full "
             type="text"
-            name="age"
-            value={formik.values.age}
+            name="phoneNumber"
+            value={formik.values.phoneNumber}
             onChange={handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.age && formik.errors.age ? <div>{formik.errors.age}</div> : null}
+          {formik.touched.phoneNumber && formik.errors.phoneNumber ? <div>{formik.errors.phoneNumber}</div> : null}
         </div>
 
         <div className="mx auto form-control w-full ">
           <label className="label">
-            <span className="label-text">Gender</span>
+            <span className="label-text">Address</span>
           </label>
           <input
             className="input input-bordered w-full "
             type="text"
-            name="gender"
-            value={formik.values.gender}
+            name="address"
+            value={formik.values.address}
             onChange={handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.gender && formik.errors.gender ? <div>{formik.errors.gender}</div> : null}
+          {formik.touched.address && formik.errors.address ? <div>{formik.errors.address}</div> : null}
         </div>
         <div className="flex justify-center">
           <input className="mt-4 btn w-full  text-white" type="submit" value="Next" />

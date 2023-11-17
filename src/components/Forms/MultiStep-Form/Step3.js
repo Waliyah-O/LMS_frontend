@@ -23,30 +23,26 @@ const Step3 = () => {
     onSubmit: handleSubmit,
   });
 
-  const handleChange = (e) => {
-    formik.handleChange(e);
-  };
-
-  function handleSubmit() {
-    dispatch(chooseAge(formik.values.age));
-    dispatch(chooseGender(formik.values.gender));
+  function handleSubmit(values) {
+    dispatch(chooseAge(values.age));
+    dispatch(chooseGender(values.gender));
     dispatch(completeStep('step3'));
     navigate('./step4');
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <div className="mx auto form-control w-full ">
           <label className="label">
             <span className="label-text">Age: </span>
           </label>
           <input
             className="input input-bordered w-full "
-            type="text"
+            type="number"
             name="age"
             value={formik.values.age}
-            onChange={handleChange}
+            onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
           {formik.touched.age && formik.errors.age ? <div>{formik.errors.age}</div> : null}
@@ -56,14 +52,19 @@ const Step3 = () => {
           <label className="label">
             <span className="label-text">Gender</span>
           </label>
-          <input
-            className="input input-bordered w-full "
-            type="text"
+          <select
+            className="input input-bordered w-full"
+            id="gender"
             name="gender"
             value={formik.values.gender}
-            onChange={handleChange}
+            onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-          />
+          >
+            <option value=""></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
           {formik.touched.gender && formik.errors.gender ? <div>{formik.errors.gender}</div> : null}
         </div>
         <div className="flex justify-center">

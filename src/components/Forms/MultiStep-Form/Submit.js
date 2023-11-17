@@ -16,7 +16,7 @@ const Submit = () => {
   const state = useSelector((state) => state);
 
   const dispatch = useDispatch();
-  const myFuntion = () => {
+  const dispatchAll = () => {
     dispatch(chooseFirstName(''));
     dispatch(chooseLastName(''));
     dispatch(chooseEmail(''));
@@ -34,7 +34,7 @@ const Submit = () => {
 
       <div>
         <Link className="flex justify-center" to="/">
-          <button className="mt-4 btn w-full max-w-xs text-white" onClick={() => myFuntion()}>
+          <button className="mt-4 btn w-full max-w-xs text-white" onClick={() => dispatchAll()}>
             Start again
           </button>
         </Link>
