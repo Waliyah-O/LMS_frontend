@@ -1,10 +1,11 @@
+
+import AllRoutes from './AllRoutes';
 import './App.css';
-import SignUp from './pages/signUp';
 
 function App() {
   return (
     <div className="App">
-      <SignUp />
+      <AllRoutes/>
     </div>
   );
 }

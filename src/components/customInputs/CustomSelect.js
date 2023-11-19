@@ -1,26 +1,24 @@
-import FormError from '../error/FormError';
+import { Field, ErrorMessage } from 'formik';
 
-const Select = ({ children, name, info, id, label, formik, ...props }) => {
+function Select(props) {
+  const { label, name, options = [], ...rest } = props;
   return (
     <div>
-      <label className="label" htmlFor={props.id}>
+      <label className="label-text" htmlFor={name}>
         {label}
       </label>
-      <div
-        className={`input__container rounded-lg border ${
-          formik && formik?.errors[name]
-            ? 'border border-error-main shadow-error focus-within:shadow-error focus-within:border-error-main '
-            : 'focus-within:shadow-active focus-within:border-primary-500 '
-        }${!props?.disabled ? (props?.value ? 'border-neutral-600' : 'border-neutral-300') : ''}`}
-      >
-        <select className="select select-bordered w-full" name={name} id={id} {...props}>
-          {children}
-        </select>
-      </div>
-      {info && <span className={'input__info text-neutral-300'}>{info}</span>}
-      <FormError errors={formik && formik?.errors} name={name} value={formik && formik.values[name]} />
+      <Field  as="select" id={name} name={name} {...rest} className="input input-bordered w-full">
+        {options.map((option) => {
+          return (
+            <option key={option.value} value={option.value}>
+              {option.key}
+            </option>
+          );
+        })}
+      </Field>
+      <ErrorMessage name={name} component="div" className="error" />
     </div>
   );
-};
+}
 
 export default Select;

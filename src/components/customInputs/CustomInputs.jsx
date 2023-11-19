@@ -13,7 +13,7 @@ const Input = ({ name, type = 'text', label, formik, info, icon, ...props }) => 
             : 'focus-within:shadow-active focus-within:border-primary-500 '
         }${!props?.disabled ? (props?.value ? 'border-neutral-600' : 'border-neutral-300') : ''}`}
       >
-        <input type={type} name={name} {...props} className='input input-bordered w-full' />
+        <input type={type} name={name} {...props} className='input input-bordered w-full' icon={icon} />
         {icon && icon}
       </div>
 

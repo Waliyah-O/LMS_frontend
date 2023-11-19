@@ -1,9 +1,51 @@
-import React from 'react'
+import Input from '../components/customInputs/CustomInputs';
+import AuthLayout from '../components/layouts/AuthLayout';
+import { ReactComponent as Eyelash } from '../assets/svg/eyeslash.svg';
+import { Formik, useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useState } from 'react';
 
-const signIn = () => {
+const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().required('This field is required'),
+      password: Yup.string().required('This field is required'),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-	<div>signIn</div>
-  )
-}
+    <AuthLayout>
+      <Formik onSubmit={formik.handleSubmit}>
+        <form>
+          <Input name={'email'} label={'Email Address'} placeholder={'address@mail.com'} required={true} />
+          <Input
+            name={'password'}
+            label={'Password'}
+            placeholder={'*********'}
+            required={true}
+            type={showPassword ? 'text' : 'password'}
+            icon={<Eyelash onClick={togglePassword} />}
+          />
+          <button className="btn w-full text-white mt-2" type="submit">
+            Sign In
+          </button>
+        </form>
+      </Formik>
+    </AuthLayout>
+  );
+};
 
-export default signIn
+export default SignIn;

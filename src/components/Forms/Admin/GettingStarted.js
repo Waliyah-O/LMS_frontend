@@ -89,17 +89,13 @@ const GettingStarted = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
           />
-          <button className="btn w-full text-white" type="submit">
-            Next
-          </button>
+          <Link to='/signup.completeprofile' relative='path'>
+            <button className="btn w-full text-white mt-2" type="submit">
+              Next
+            </button>
+          </Link>
         </form>
       </Formik>
-      <p>
-        Have an account?{' '}
-        <Link to="./completeprofile" className="text-green-500">
-          Sign In
-        </Link>
-      </p>
     </AuthLayout>
   );
 };

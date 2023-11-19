@@ -1,13 +1,29 @@
 import AuthLayout from '../../layouts/AuthLayout';
 import Input from '../../customInputs/CustomInputs';
-import { Link } from 'react-router-dom';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
-import Select from '../../customInputs/CustomSelect';
+// import Select from '../../customInputs/CustomSelect';
+import FormikController from '../../../controller/FormikController';
 
 const CompleteProfile = () => {
   // const firstName = useSelector((state) => state.firstName);
   // const lastName = useSelector((state) => state.lastName);
+
+  const countries = [
+    { key: 'Select country', value: '' },
+    { key: 'choice a', value: 'choicea' },
+    { key: 'choice b', value: 'choiceb' },
+  ];
+  // const states = [
+  //   { key: 'Select state', value: '' },
+  //   { key: 'choice a', value: 'choicea' },
+  //   { key: 'choice b', value: 'choiceb' },
+  // ];
+  // const gender = [
+  //   { key: 'Select gender', value: '' },
+  //   { key: 'choice a', value: 'choicea' },
+  //   { key: 'choice b', value: 'choiceb' },
+  // ];
 
   const formik = useFormik({
     initialValues: {
@@ -18,9 +34,9 @@ const CompleteProfile = () => {
       gender: '',
       uploadOrganizationLogo: '',
     },
-    validationSchema: Yup.object({
+    validationSchema: Yup.object().shape({
       organizationAddress: Yup.string().required('This field is required'),
-      adminPhoneNumber: Yup.string().required('This field is required'),
+      adminPhoneNumber: Yup.string().required('This field is required').min(11, 'Must be 11 characters or more'),
       countryOfResidence: Yup.string().required('This field is required'),
       stateOfResidence: Yup.string().required('This field is required'),
       gender: Yup.string().required('This field is required'),
@@ -35,7 +51,7 @@ const CompleteProfile = () => {
 
   return (
     <AuthLayout>
-      <Formik onSubmit={formik.handleSubmit}>
+      <Formik initialValues={{}} onSubmit={formik.handleSubmit}>
         <form>
           <Input
             name={'organizationAddress'}
@@ -49,7 +65,7 @@ const CompleteProfile = () => {
           />
           <Input
             name={'adminPhoneNumber'}
-            type={'text'}
+            type={'number'}
             label={'Admin Phone Number'}
             placeholder={'Enter admin phone number'}
             required={true}
@@ -57,51 +73,9 @@ const CompleteProfile = () => {
             onChange={formik.handleChange}
             value={formik.values.adminPhoneNumber}
           />
-          <Select
-            label={'Country of Residence'}
-            name={'countryOfResidence'}
-            type={'text'}
-            placeholder={'Enter last name'}
-            required={true}
-            onChange={formik.handleChange}
-            value={formik.values.countryOfResidence}
-          >
-            <option>Select country</option>
-            <option value="nigeria">Nigeria</option>
-            <option value="ghana">Ghana</option>
-            <option value="ethiopia">Ethiopia</option>
-          </Select>
-          <Select
-            label={'State of Residence'}
-            name={'stateOfResidence'}
-            type={'text'}
-            placeholder={'Enter last name'}
-            required={true}
-            onChange={formik.handleChange}
-            value={formik.values.stateOfResidence}
-          >
-            <option>Select state</option>
-            <option value="lagos">Lagos</option>
-            <option value="oyo">Oyo</option>
-            <option value="portHarcourt">Port Harcourt</option>
-          </Select>
-
-          <label>gender</label>
-          <select
-            className="select select-bordered w-full"
-            name={'gender'}
-            type={'gender'}
-            label={'gender'}
-            placeholder={'Enter gender'}
-            required={true}
-            onChange={formik.handleChange}
-            value={formik.values.gender}
-          >
-            <option></option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="others">Others</option>
-          </select>
+          <FormikController control="select" label="Select country" name="countryOfResidence" options={countries} />
+          <FormikController control="select" label="Select state" name="stateOfResidence" options={countries} />
+          <FormikController control="select" label="Select gender" name="gender" options={countries} />
 
           <label className="label-text">Upload Organization Logo</label>
           <input
@@ -109,21 +83,15 @@ const CompleteProfile = () => {
             placeholder={'No file chosen'}
             required={true}
             onChange={formik.handleChange}
-            value={undefined}
+            value={formik.values.uploadOrganizationLogo}
             type="file"
             className="file-input file-input-bordered w-full mb-3"
           />
           <button className="btn w-full text-white" type="submit">
-            Next
+            Create Account
           </button>
         </form>
       </Formik>
-      <p>
-        Have an account?{' '}
-        <Link to="./completeprofile" className="text-green-500">
-          Sign In
-        </Link>
-      </p>
     </AuthLayout>
   );
 };
