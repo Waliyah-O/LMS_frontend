@@ -34,12 +34,13 @@ const AuthLayout = ({ children }) => {
         </div>
 
         <div className=" sm:w-2/5 w-full flex-col items-center sm:p-2 p-4">
+        <span> &larr; Go Home</span>
           <h1 className="my-5 text-xl-heading"> {header()}</h1>
           <p className="my-5"> {subHeader()}</p>
           {children}
           <p>
             Have an account?{' '}
-            <Link to={linkTo} className="text-green-500">
+            <Link to={linkTo} className="text-blue-500">
               {location.pathname === '/signup' ? 'Sign In' : 'Sign Up'}
             </Link>
           </p>

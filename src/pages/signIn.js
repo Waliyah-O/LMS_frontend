@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Input from '../components/customInputs/CustomInputs';
 import AuthLayout from '../components/layouts/AuthLayout';
 import { ReactComponent as Eyelash } from '../assets/svg/eyeslash.svg';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +31,7 @@ const SignIn = () => {
     <AuthLayout>
       <Formik onSubmit={formik.handleSubmit}>
         <form>
-          <Input name={'email'} label={'Email Address'} placeholder={'address@mail.com'} required={true} />
+          <Input type={'email'} name={'email'} label={'Email Address'} placeholder={'address@mail.com'} required={true} />
           <Input
             name={'password'}
             label={'Password'}

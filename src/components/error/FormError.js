@@ -1,4 +1,4 @@
-import { ReactComponent as Bullets } from '../../assets/svg/formvalue-error.svg';
+import { ReactComponent as Bullets } from '../../assets/svg/bullets.svg';
 import { hasCaps, hasDigit, hasSpecialCharacter } from '../../utils/constants';
 
 const FormError = ({ errors, name, value }) => {
