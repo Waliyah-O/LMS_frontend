@@ -9,11 +9,11 @@ const AuthLayout = ({ children }) => {
 
   const header = () => {
     if (location.pathname === '/signup') {
-      return "let's Get Started";
+      return "Let's Get Started";
     } else if (location.pathname === '/signin') {
       return 'Welcome Back!';
     } else if (location.pathname === '/forgotpassword') {
-      return 'Forget Password?';
+      return 'Forgot Password?';
     }
   };
   const subHeader = () => {
@@ -27,14 +27,16 @@ const AuthLayout = ({ children }) => {
   };
 
   return (
-    <div className=" w-screen flex items-center">
+    <div className=" w-screen flex items-center gap-36">
       <ErrorBoundary FallbackComponent={ErrorUI}>
-        <div className="sm:w-1/2 hidden sm:block">
-          <img className="h-screen" src={AuthImage} alt="smiling-girl-image" />
+        <div className=" sm:w-2/5  hidden sm:block">
+          <img className="w-full" src={AuthImage} alt="smiling-girl-image" />
         </div>
 
-        <div className=" sm:w-2/5 w-full flex-col items-center sm:p-2 p-4">
-        <span> &larr; Go Home</span>
+        <div className=" sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 ">
+          <Link to={'/'}>
+            <span> &larr; Go Home</span>
+          </Link>
           <h1 className="my-5 text-xl-heading"> {header()}</h1>
           <p className="my-5"> {subHeader()}</p>
           {children}

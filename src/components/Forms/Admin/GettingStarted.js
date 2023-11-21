@@ -1,13 +1,10 @@
-import AuthLayout from '../../layouts/AuthLayout';
-import Input from '../../customInputs/CustomInputs';
-import { Link } from 'react-router-dom';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
+import AuthLayout from '../../layouts/AuthLayout';
+import CustomInput from '../../customInputs/CustomInputs';
+import ErrorFields from '../../error/ErrorFields';
 
 const GettingStarted = () => {
-  // const firstName = useSelector((state) => state.firstName);
-  // const lastName = useSelector((state) => state.lastName);
-
   const formik = useFormik({
     initialValues: {
       organizationName: '',
@@ -20,8 +17,9 @@ const GettingStarted = () => {
       organizationName: Yup.string().required('This field is required'),
       adminFirstName: Yup.string().required('This field is required'),
       adminLastName: Yup.string().required('This field is required'),
-      email: Yup.string().required('This field is required'),
+      email: Yup.string().required('This field is required').email('Invalid email address'),
       password: Yup.string()
+        .required('This field is required')
         .min(10, 'Password must be 10 characters long')
         .matches(/[A-Z]/, 'Password requires an uppercase letter')
         .matches(/[a-z]/, 'Password requires a lowercase letter')
@@ -39,61 +37,61 @@ const GettingStarted = () => {
     <AuthLayout>
       <Formik onSubmit={formik.handleSubmit}>
         <form>
-          <Input
-            name={'organizationName'}
-            type={'text'}
-            label={'Organization Name'}
-            placeholder={'Enter organization name'}
-            required={true}
-            formik={formik}
+          <CustomInput
+            inputError={formik.touched.organizationName && formik.errors.organizationName}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.organizationName}
+            type="text"
+            labelText="Organization Name"
+            name="organizationName"
           />
-          <Input
-            name={'adminFirstName'}
-            type={'text'}
-            label={'Admin First Name'}
-            placeholder={'Enter admin first name'}
-            required={true}
-            formik={formik}
+
+          <CustomInput
+            inputError={formik.touched.adminFirstName && formik.errors.adminFirstName}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.adminFirstName}
+            type="text"
+            labelText="Admin First Name"
+            name="adminFirstName"
           />
-          <Input
-            name={'adminLastName'}
-            type={'text'}
-            label={'Admin Last Name'}
-            placeholder={'Enter last name'}
-            required={true}
-            formik={formik}
+
+          <CustomInput
+            inputError={formik.touched.adminLastName && formik.errors.adminLastName}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.adminLastName}
+            type="text"
+            labelText="Admin Last Name"
+            name="adminLastName"
           />
-          <Input
-            name={'email'}
-            type={'email'}
-            label={'Email Address'}
-            placeholder={'Enter email address'}
-            required={true}
-            formik={formik}
+
+          <CustomInput
+            inputError={formik.touched.email && formik.errors.email}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.email}
+            type="email"
+            labelText="Email Address"
+            name="email"
           />
-          <Input
-            name={'password'}
-            type={'password'}
-            label={'Password'}
-            placeholder={'Enter password'}
-            required={true}
-            formik={formik}
+
+          <CustomInput
+            inputError={formik.touched.password && formik.errors.password}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.password}
+            type="password"
+            labelText="Password"
+            name="password"
           />
-          <Link to='/signup.completeprofile' relative='path'>
-            <button className="btn w-full text-white mt-2" type="submit">
-              Next
-            </button>
-          </Link>
+
+          <ErrorFields password={formik.values.password} formik={formik} />
+
+          <button className="btn w-full text-white mt-2" type="submit">
+            Next
+          </button>
         </form>
       </Formik>
     </AuthLayout>
