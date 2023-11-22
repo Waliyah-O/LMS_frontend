@@ -9,16 +9,17 @@ import { hasCaps, hasDigit, hasSpecialCharacter } from '../../utils/constants';
 const ErrorTexts = ({ text, isError, formik }) => (
   <div
     className={`flex items-center gap-2 ${
-      formik.touched.password ? (isError ? 'text-red-500' : 'text-green-500') : 'text-gray-500'
+      !formik.touched.password ? 'text-gray-500' : isError ? 'text-red-500' : 'text-green-500'
     }`}
   >
-    {!formik.touched.password && <Checkmark />}
-    {formik.touched.password && (isError ? <Error /> : <GreenCheck />)}
+    {formik.touched.password && formik.errors.password && isError && <Error />}
+    {!formik.touched.password && isError && <Checkmark />}
+    {formik.touched.password && !isError && <GreenCheck />}
     <span>{text}</span>
   </div>
 );
 
-const ErrorFields = ({ password, formik }) => {
+const ErrorFields = ({ password, formik, className }) => {
   const [errors, setErrors] = useState({
     minLength: true,
     uppercase: true,
@@ -36,7 +37,7 @@ const ErrorFields = ({ password, formik }) => {
   }, [password]);
 
   return (
-    <div>
+    <div className={className}>
       <ErrorTexts text="Minimum of 10 characters" isError={!errors.minLength} formik={formik} />
       <ErrorTexts text="At least 1 uppercase letter" isError={!errors.uppercase} formik={formik} />
       <ErrorTexts text="At least 1 special character" isError={!errors.specialCharacter} formik={formik} />

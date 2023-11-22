@@ -14,6 +14,7 @@ const CustomInput = ({
   labelRightText,
   inputError,
   inputErrorRight,
+  className,
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -27,6 +28,7 @@ const CustomInput = ({
         <span className="label-text">{labelText}</span>
         <span className="label-text-alt">{labelRightText}</span>
       </label>
+
       <div className="relative">
         <input
           type={isPasswordVisible ? 'text' : type}
@@ -35,8 +37,9 @@ const CustomInput = ({
           onBlur={onBlur}
           onChange={onChange}
           value={value}
-          className="input input-bordered w-full"
+          className={`input input-bordered w-full ${inputError ? 'input-error' : ''} ${className || ''}`}
         />
+
         {type === 'password' && (
           <button
             type="button"
@@ -47,6 +50,7 @@ const CustomInput = ({
           </button>
         )}
       </div>
+
       {inputError && (
         <label className="label">
           <span className="label-text-alt text-red-600 flex gap-1">

@@ -1,30 +1,10 @@
 import AuthLayout from '../../layouts/AuthLayout';
-import Input from '../../customInputs/CustomInputs';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
-// import Select from '../../customInputs/CustomSelect';
-import FormikController from '../../../controller/FormikController';
+import CustomInput from '../../customInputs/CustomInputs';
+import CustomSelect from '../../customInputs/CustomSelect';
 
 const CompleteProfile = () => {
-  // const firstName = useSelector((state) => state.firstName);
-  // const lastName = useSelector((state) => state.lastName);
-
-  const countries = [
-    { key: 'Select country', value: '' },
-    { key: 'choice a', value: 'choicea' },
-    { key: 'choice b', value: 'choiceb' },
-  ];
-  // const states = [
-  //   { key: 'Select state', value: '' },
-  //   { key: 'choice a', value: 'choicea' },
-  //   { key: 'choice b', value: 'choiceb' },
-  // ];
-  // const gender = [
-  //   { key: 'Select gender', value: '' },
-  //   { key: 'choice a', value: 'choicea' },
-  //   { key: 'choice b', value: 'choiceb' },
-  // ];
-
   const formik = useFormik({
     initialValues: {
       organizationAddress: '',
@@ -36,7 +16,7 @@ const CompleteProfile = () => {
     },
     validationSchema: Yup.object().shape({
       organizationAddress: Yup.string().required('This field is required'),
-      adminPhoneNumber: Yup.string().required('This field is required').min(11, 'Must be 11 characters or more'),
+      adminPhoneNumber: Yup.string().required('This field is required'),
       countryOfResidence: Yup.string().required('This field is required'),
       stateOfResidence: Yup.string().required('This field is required'),
       gender: Yup.string().required('This field is required'),
@@ -49,45 +29,75 @@ const CompleteProfile = () => {
     console.log(values);
   }
 
+  const countryOptions = [
+    { position: 1, label: 'Nigeria' },
+    { position: 2, label: 'Ghana' },
+  ];
+  const stateOptions = [
+    { position: 1, label: 'Lagos' },
+    { position: 2, label: 'Ogun' },
+  ];
+
   return (
     <AuthLayout>
-      <Formik initialValues={{}} onSubmit={formik.handleSubmit}>
-        <form>
-          <Input
+      <Formik onSubmit={formik.handleSubmit}>
+        <form className="h-screen flex flex-col gap-2">
+          <CustomInput
             name={'organizationAddress'}
             type={'text'}
-            label={'Organization Address'}
+            labelText={'Organization Address'}
             placeholder={'Enter organization address'}
-            required={true}
-            formik={formik}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.organizationAddress}
+            inputError={formik.touched.organizationAddress && formik.errors.organizationAddress}
           />
-          <Input
+
+          <CustomInput
             name={'adminPhoneNumber'}
             type={'number'}
-            label={'Admin Phone Number'}
+            labelText={'Admin Phone Number'}
             placeholder={'Enter admin phone number'}
-            required={true}
-            formik={formik}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.adminPhoneNumber}
+            inputError={formik.touched.adminPhoneNumber && formik.errors.adminPhoneNumber}
           />
-          <FormikController control="select" label="Select country" name="countryOfResidence" options={countries} />
-          <FormikController control="select" label="Select state" name="stateOfResidence" options={countries} />
-          <FormikController control="select" label="Select gender" name="gender" options={countries} />
 
-          <label className="label-text">Upload Organization Logo</label>
-          <input
+          <CustomSelect
+            optionText={'Select Country'}
+            labelText={'Country of Residence'}
+            options={countryOptions}
+            value={formik.values.countryOfResidence}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            name={'countryOfResidence'}
+            errorText={formik.touched.countryOfResidence && formik.errors.countryOfResidence}
+          />
+
+          <CustomSelect
+            optionText={'Select State'}
+            labelText={'State of Residence'}
+            options={stateOptions}
+            value={formik.values.stateOfResidence}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            name={'stateOfResidence'}
+            errorText={formik.touched.stateOfResidence && formik.errors.stateOfResidence}
+          />
+
+          <CustomInput
             name={'uploadOrganizationLogo'}
-            placeholder={'No file chosen'}
-            required={true}
+            labelText={'Upload Organization Logo'}
+            className={'file-input file-input-bordered w-full'}
+            type={'file'}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.uploadOrganizationLogo}
-            type="file"
-            className="file-input file-input-bordered w-full mb-3"
+            inputError={formik.touched.uploadOrganizationLogo && formik.errors.uploadOrganizationLogo}
           />
-          <button className="btn w-full text-white" type="submit">
+
+          <button className="btn w-full text-white my-3" type="submit">
             Create Account
           </button>
         </form>

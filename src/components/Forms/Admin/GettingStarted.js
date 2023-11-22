@@ -87,9 +87,9 @@ const GettingStarted = () => {
             name="password"
           />
 
-          <ErrorFields password={formik.values.password} formik={formik} />
+          <ErrorFields className={'mt-3'} password={formik.values.password} formik={formik} />
 
-          <button className="btn w-full text-white mt-2" type="submit">
+          <button className="btn w-full text-white my-4" type="submit">
             Next
           </button>
         </form>
