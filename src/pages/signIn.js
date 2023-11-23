@@ -30,16 +30,30 @@ const SignIn = () => {
     <AuthLayout>
       <Formik onSubmit={formik.handleSubmit}>
         <form>
-          <CustomInput type={'email'} name={'email'} label={'Email Address'} placeholder={'address@mail.com'} required={true} />
+          <CustomInput
+            name={'email'}
+            labelText={'Email Address'}
+            placeholder={'Enter email address'}
+            required={true}
+            type={'email'}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            inputError={formik.touched.email && formik.errors.email}
+          />
           <CustomInput
             name={'password'}
-            label={'Password'}
-            placeholder={'*********'}
+            labelText={'Password'}
+            placeholder={'Enter password'}
             required={true}
             type={showPassword ? 'text' : 'password'}
             icon={<Eyelash onClick={togglePassword} />}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            inputError={formik.touched.password && formik.errors.password}
           />
-          <button className="btn w-full text-white mt-2" type="submit">
+          <button className="btn w-full text-white my-5" type="submit">
             Sign In
           </button>
         </form>

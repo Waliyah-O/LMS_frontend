@@ -27,13 +27,22 @@ const ErrorFields = ({ password, formik, className }) => {
     number: true,
   });
 
+  // useEffect(() => {
+  //   setErrors({
+  //     minLength: password.length >= 10,
+  //     uppercase: hasCaps(password),
+  //     specialCharacter: hasSpecialCharacter(password),
+  //     number: hasDigit(password),
+  //   });
+  // }, [password]);
+
   useEffect(() => {
-    setErrors({
+    setErrors((prevErrors) => ({
       minLength: password.length >= 10,
       uppercase: hasCaps(password),
       specialCharacter: hasSpecialCharacter(password),
       number: hasDigit(password),
-    });
+    }));
   }, [password]);
 
   return (

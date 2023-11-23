@@ -5,6 +5,7 @@ import { ReactComponent as VisibilityOffIcon } from '../../assets/svg/eyeVisible
 
 const CustomInput = ({
   type,
+  id,
   placeholder,
   name,
   onChange,
@@ -24,7 +25,7 @@ const CustomInput = ({
 
   return (
     <div className="form-control w-full">
-      <label className="label" htmlFor={name}>
+      <label className="label" htmlFor={id}>
         <span className="label-text">{labelText}</span>
         <span className="label-text-alt">{labelRightText}</span>
       </label>
@@ -46,7 +47,7 @@ const CustomInput = ({
             onClick={handleTogglePasswordVisibility}
             className="absolute inset-y-0 right-0 px-2 flex items-center"
           >
-            {isPasswordVisible ? <VisibilityOffIcon alt="Hide password" /> : <VisibilityOnIcon alt="Show password" />}
+            {isPasswordVisible ? <VisibilityOnIcon  alt="Hide password" /> : <VisibilityOffIcon alt="Show password" />}
           </button>
         )}
       </div>
