@@ -22,12 +22,12 @@ const ErrorFields = ({ password, formik, className }) => {
   });
 
   useEffect(() => {
-    setErrors((prevErrors) => ({
+    setErrors({
       minLength: password.length >= 10,
       uppercase: hasCaps(password),
       specialCharacter: hasSpecialCharacter(password),
       number: hasDigit(password),
-    }));
+    });
   }, [password]);
 
   return (
