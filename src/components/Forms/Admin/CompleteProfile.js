@@ -89,7 +89,7 @@ const CompleteProfile = () => {
           <CustomInput
             name={'uploadOrganizationLogo'}
             labelText={'Upload Organization Logo'}
-            className={'file-input file-input-bordered w-full'}
+            className={'file-input file-input-bordered w-full pl-0'}
             type={'file'}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}

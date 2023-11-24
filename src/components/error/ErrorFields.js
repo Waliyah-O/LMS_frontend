@@ -7,15 +7,9 @@ import { ReactComponent as GreenCheck } from '../../assets/svg/greenCheck.svg';
 import { hasCaps, hasDigit, hasSpecialCharacter } from '../../utils/constants';
 
 const ErrorTexts = ({ text, isError, formik }) => (
-  <div
-    className={`flex items-center gap-2 ${
-      !formik.touched.password ? 'text-gray-500' : isError ? 'text-red-500' : 'text-green-500'
-    }`}
-  >
-    {formik.touched.password && formik.errors.password && isError && <Error />}
-    {!formik.touched.password && isError && <Checkmark />}
-    {formik.touched.password && !isError && <GreenCheck />}
-    <span>{text}</span>
+  <div className={'flex items-center gap-2'}>
+    {!formik.errors.password ? <Checkmark /> : isError ? <Error /> : <GreenCheck />}
+    <span className={!formik.errors.password ? 'text-grey-500' : isError ? 'text-red-500' : 'text-green-500'}>{text}</span>
   </div>
 );
 
@@ -26,15 +20,6 @@ const ErrorFields = ({ password, formik, className }) => {
     specialCharacter: true,
     number: true,
   });
-
-  // useEffect(() => {
-  //   setErrors({
-  //     minLength: password.length >= 10,
-  //     uppercase: hasCaps(password),
-  //     specialCharacter: hasSpecialCharacter(password),
-  //     number: hasDigit(password),
-  //   });
-  // }, [password]);
 
   useEffect(() => {
     setErrors((prevErrors) => ({
