@@ -10,6 +10,8 @@ const AuthLayout = ({ children }) => {
   const header = () => {
     if (location.pathname === '/signup') {
       return "Let's Get Started";
+    } else if (location.pathname === `/signup.completeprofile`) {
+      return 'Complete Profile';
     } else if (location.pathname === '/signin') {
       return 'Welcome Back!';
     } else if (location.pathname === '/forgotpassword') {
@@ -19,6 +21,8 @@ const AuthLayout = ({ children }) => {
   const subHeader = () => {
     if (location.pathname === '/signup') {
       return 'To sign up admin must fill in basic information below';
+    } else if (location.pathname === `/signup.completeprofile`) {
+      return 'Complete profile information to go on to assessment';
     } else if (location.pathname === '/signin') {
       return 'Sign in to your account';
     } else if (location.pathname === '/forgotpassword') {
