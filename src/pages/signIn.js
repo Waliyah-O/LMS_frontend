@@ -4,6 +4,8 @@ import AuthLayout from '../components/layouts/AuthLayout';
 import { ReactComponent as Eyelash } from '../assets/svg/eyeslash.svg';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,6 +20,43 @@ const SignIn = () => {
       password: Yup.string().required('This field is required'),
     }),
     onSubmit: (values) => {
+      toast.error(
+        <>
+          Incorrect Email or Password <span className="font-normal">Confirm your details.</span>
+          <br />
+        </>,
+        {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          style: {
+            backgroundColor: 'rgba(253, 232, 232, 1)',
+            color: 'rgba(200, 30, 30, 1)',
+            fontWeight: 'bold',
+          },
+        }
+      );
+
+      toast.success(
+        <>
+          Login Successful
+          <br />
+        </>,
+        {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          style: {
+            backgroundColor: 'rgba(4, 108, 78, 0.1)',
+            color: '#148519',
+            fontWeight: 'bold',
+          },
+        }
+      );
       console.log(values);
     },
   });
@@ -28,8 +67,8 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
-      <Formik onSubmit={formik.handleSubmit}>
-        <form>
+      <Formik>
+        <form onSubmit={formik.handleSubmit}>
           <CustomInput
             name={'email'}
             labelText={'Email Address'}
@@ -58,6 +97,7 @@ const SignIn = () => {
           </button>
         </form>
       </Formik>
+      <ToastContainer />
     </AuthLayout>
   );
 };
