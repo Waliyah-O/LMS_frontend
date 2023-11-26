@@ -2,10 +2,12 @@ import { useState } from 'react';
 import CustomInput from '../components/customInputs/CustomInputs';
 import AuthLayout from '../components/layouts/AuthLayout';
 import { ReactComponent as Eyelash } from '../assets/svg/eyeslash.svg';
-import { Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useFormik } from 'formik';
+import { ButtonSize, ButtonState } from '../components/button/enum';
+import Button from '../components/button';
+import { showToast } from '../utils';
+import { LoginSchemaEmail } from '../validations';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,16 +17,14 @@ const SignIn = () => {
       email: '',
       password: '',
     },
-    validationSchema: Yup.object({
-      email: Yup.string().required('This field is required'),
-      password: Yup.string().required('This field is required'),
-    }),
+    validationSchema: LoginSchemaEmail,
     onSubmit: (values) => {
-      toast.error(
+      showToast(
         <>
           Incorrect Email or Password <span className="font-normal">Confirm your details.</span>
           <br />
         </>,
+        'error',
         {
           position: 'top-right',
           autoClose: 3000,
@@ -39,11 +39,12 @@ const SignIn = () => {
         }
       );
 
-      toast.success(
+      showToast(
         <>
           Login Successful
           <br />
         </>,
+        'error',
         {
           position: 'top-right',
           autoClose: 3000,
@@ -67,37 +68,43 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
-      <Formik>
-        <form onSubmit={formik.handleSubmit}>
-          <CustomInput
-            name={'email'}
-            labelText={'Email Address'}
-            placeholder={'Enter email address'}
-            required={true}
-            type={'email'}
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            inputError={formik.touched.email && formik.errors.email}
-          />
-          <CustomInput
-            name={'password'}
-            labelText={'Password'}
-            placeholder={'Enter password'}
-            required={true}
-            type={showPassword ? 'text' : 'password'}
-            icon={<Eyelash onClick={togglePassword} />}
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            inputError={formik.touched.password && formik.errors.password}
-          />
-          <button className="btn w-full text-white my-5" type="submit">
-            Sign In
-          </button>
-        </form>
-      </Formik>
-      <ToastContainer />
+      <form onSubmit={formik.handleSubmit} className='flex flex-col gap-2'>
+        <CustomInput
+          name={'email'}
+          labelText={'Email Address'}
+          placeholder={'Enter email address'}
+          required={true}
+          type={'email'}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          inputError={formik.touched.email && formik.errors.email}
+        />
+        <CustomInput
+          name={'password'}
+          labelText={'Password'}
+          placeholder={'Enter password'}
+          required={true}
+          type={showPassword ? 'text' : 'password'}
+          icon={<Eyelash onClick={togglePassword} />}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          inputError={formik.touched.password && formik.errors.password}
+        />
+        <Link to={'/forgotpassword'}>
+          <span className='w-full flex justify-end text-green-500 text-sm'> Forget Password?</span>
+        </Link>
+        <Button
+          value={"Sign In"} 
+          size={ButtonSize.lg}
+          variant={ButtonState.PRIMARY}
+          type={"Button"}
+          onClick={() => formik.handleSubmit()}
+          className={"w-full mt-2"} 
+          disabled={!formik.isValid || !formik.dirty}
+        />
+      </form>
     </AuthLayout>
   );
 };

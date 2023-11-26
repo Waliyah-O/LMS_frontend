@@ -11,6 +11,14 @@ module.exports = {
         primary: {
           500: '#4361EE',
         },
+        green:{
+          500: '#148519',
+          700: '#046C4E'
+        },
+        gray: {
+          300: '#D1D5DB',
+          900: '#111928'
+        }
       },
     },
     fontWeight: {
@@ -144,4 +152,7 @@ module.exports = {
     },
   },
   plugins: [require('daisyui')],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 };

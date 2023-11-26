@@ -59,27 +59,28 @@ export const generateActions = (action) => {
 
 export const showToast = (
 	message,
-	type
+	type, 
+	option={}
 ) => {
 	toast.dismiss();
 	switch (type?.toLowerCase()) {
 		case "success":
-			toast.success(message);
+			toast.success(message, option);
 			break;
 		case "info":
-			toast.info(message);
+			toast.info(message, option);
 			break;
 		case "loading":
-			toast.loading(message);
+			toast.loading(message, option);
 			break;
 		case "warn":
-			toast.warn(message);
+			toast.warn(message, option);
 			break;
 		case "error":
-			toast.error(message);
+			toast.error(message, option);
 			break;
 		default:
-			toast.info(message);
+			toast.info(message, option);
 			break;
 	}
 };
