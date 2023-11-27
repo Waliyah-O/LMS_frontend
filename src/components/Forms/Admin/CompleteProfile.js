@@ -3,6 +3,9 @@ import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
 import CustomInput from '../../customInputs/CustomInputs';
 import CustomSelect from '../../customInputs/CustomSelect';
+import Button from '../../button';
+import { ButtonSize, ButtonState } from '../../button/enum';
+import { showToast } from '../../../utils';
 
 const CompleteProfile = () => {
   const formik = useFormik({
@@ -11,7 +14,7 @@ const CompleteProfile = () => {
       adminPhoneNumber: '',
       countryOfResidence: '',
       stateOfResidence: '',
-      gender: '',
+      // gender: '',
       uploadOrganizationLogo: '',
     },
     validationSchema: Yup.object().shape({
@@ -19,13 +22,53 @@ const CompleteProfile = () => {
       adminPhoneNumber: Yup.string().required('This field is required'),
       countryOfResidence: Yup.string().required('This field is required'),
       stateOfResidence: Yup.string().required('This field is required'),
-      gender: Yup.string().required('This field is required'),
+      // gender: Yup.string().required('This field is required'),
       uploadOrganizationLogo: Yup.string().required('This field is required'),
     }),
     onSubmit: handleSubmit,
   });
 
   function handleSubmit(values) {
+    showToast(
+      <>
+        Email already in use
+        <br />
+        <span className="font-normal"> Login to your account, if registered.</span>
+      </>,
+      'error',
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          backgroundColor: 'rgba(253, 232, 232, 1)',
+          color: 'rgba(200, 30, 30, 1)',
+          fontWeight: 'bold',
+        },
+      }
+    );
+
+    showToast(
+      <>
+        Registration Successful
+        <br />
+      </>,
+      'success',
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          backgroundColor: 'rgba(4, 108, 78, 0.1)',
+          color: '#148519',
+          fontWeight: 'bold',
+        },
+      }
+    );
     console.log(values);
   }
 
@@ -96,10 +139,16 @@ const CompleteProfile = () => {
             value={formik.values.uploadOrganizationLogo}
             inputError={formik.touched.uploadOrganizationLogo && formik.errors.uploadOrganizationLogo}
           />
-
-          <button className="btn w-full text-white my-3" type="submit">
-            Create Account
-          </button>
+          <Button
+            value={'Create Account'}
+            size={ButtonSize.md}
+            variant={ButtonState.PRIMARY}
+            type={'Button'}
+            onClick={() => formik.handleSubmit()}
+            className={'w-full mt-2'}
+            disabled={!formik.isValid || !formik.dirty}
+          />
+          {/* <button className="btn w-full text-white my-3" type="submit"></button> */}
         </form>
       </Formik>
     </AuthLayout>
