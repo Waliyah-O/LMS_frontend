@@ -8,8 +8,8 @@ const Step1 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const firstName= useSelector((state) => state.firstName)
-  const lastName= useSelector((state) => state.lastName)
+  const firstName = useSelector((state) => state.firstName);
+  const lastName = useSelector((state) => state.lastName);
 
   const formik = useFormik({
     initialValues: {
@@ -22,7 +22,6 @@ const Step1 = () => {
     }),
     onSubmit: handleSubmit,
   });
-
 
   function handleSubmit(values) {
     dispatch(chooseFirstName(values.firstName));
@@ -73,9 +72,9 @@ const Step1 = () => {
         </div>
 
         <div className="flex justify-center">
-          <button className="btn w-full text-white" type="submit">
+          {/* <button className="btn w-full text-white" type="submit">
             Next
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

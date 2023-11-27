@@ -7,8 +7,9 @@ import Step4 from '../components/Forms/MultiStep-Form/Step4';
 import Submit from '../components/Forms/MultiStep-Form/Submit';
 import Result from '../components/Forms/MultiStep-Form/Result';
 import AuthLayout from '../components/layouts/AuthLayout';
+import CustomButton from '../components/button/CustomButton';
 
-const SignUp = () => {
+const SignUp = ({ buttonText }) => {
   return (
     <AuthLayout>
       <div>
@@ -51,6 +52,7 @@ const SignUp = () => {
           </Routes>
         </div>
       </div>
+      <CustomButton>Next</CustomButton>
     </AuthLayout>
   );
 };
