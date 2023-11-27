@@ -5,6 +5,7 @@ import ErrorFields from '../../error/ErrorFields';
 import { SignupSchemaEmail } from '../../../validations';
 import Button from '../../button';
 import { ButtonSize, ButtonState } from '../../button/enum';
+import { showToast } from '../../../utils';
 
 const GettingStarted = () => {
   const formik = useFormik({
@@ -20,12 +21,72 @@ const GettingStarted = () => {
   });
 
   function handleSubmit(values) {
+    showToast(
+      <>
+        Complete Profile Error <br />
+        <span className="font-normal"> Incomplete profile input fields</span>
+      </>,
+      'error',
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          backgroundColor: 'rgba(253, 232, 232, 1)',
+          color: 'rgba(200, 30, 30, 1)',
+          fontWeight: 'bold',
+        },
+      }
+    );
+
+    showToast(
+      <>
+        Email already in use
+        <br />
+        <span className="font-normal"> Login to your account, if registered.</span>
+      </>,
+      'error',
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          backgroundColor: 'rgba(253, 232, 232, 1)',
+          color: 'rgba(200, 30, 30, 1)',
+          fontWeight: 'bold',
+        },
+      }
+    );
+
+    showToast(
+      <>
+        Registration Successful
+        <br />
+      </>,
+      'success',
+      {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          backgroundColor: 'rgba(4, 108, 78, 0.1)',
+          color: '#148519',
+          fontWeight: 'bold',
+        },
+      }
+    );
     console.log(values);
   }
 
   return (
     <AuthLayout>
-      <form className='flex flex-col gap-4' onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
         <CustomInput
           inputError={formik.touched.organizationName && formik.errors.organizationName}
           onBlur={formik.handleBlur}
@@ -83,12 +144,12 @@ const GettingStarted = () => {
         <ErrorFields password={formik.values.password} formik={formik} />
 
         <Button
-          value={"Sign Up"} 
+          value={'Sign Up'}
           size={ButtonSize.lg}
           variant={ButtonState.PRIMARY}
-          type={"Button"}
+          type={'Button'}
           onClick={() => formik.handleSubmit()}
-          className={"w-full mt-2"} 
+          className={'w-full mt-2'}
           disabled={!formik.isValid || !formik.dirty}
         />
       </form>

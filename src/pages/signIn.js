@@ -21,8 +21,7 @@ const SignIn = () => {
     onSubmit: (values) => {
       showToast(
         <>
-          Incorrect Email or Password <span className="font-normal">Confirm your details.</span>
-          <br />
+          Incorrect Email or Password <br /> <span className="font-normal">Confirm your details.</span>
         </>,
         'error',
         {
