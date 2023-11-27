@@ -44,7 +44,7 @@ const SignIn = () => {
           Login Successful
           <br />
         </>,
-        'error',
+        'success',
         {
           position: 'top-right',
           autoClose: 3000,
@@ -68,7 +68,7 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
-      <form onSubmit={formik.handleSubmit} className='flex flex-col gap-2'>
+      <form onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
         <CustomInput
           name={'email'}
           labelText={'Email Address'}
@@ -93,15 +93,15 @@ const SignIn = () => {
           inputError={formik.touched.password && formik.errors.password}
         />
         <Link to={'/forgotpassword'}>
-          <span className='w-full flex justify-end text-green-500 text-sm'> Forget Password?</span>
+          <span className="w-full flex justify-end text-green-500 text-sm"> Forget Password?</span>
         </Link>
         <Button
-          value={"Sign In"} 
+          value={'Sign In'}
           size={ButtonSize.lg}
           variant={ButtonState.PRIMARY}
-          type={"Button"}
+          type={'Button'}
           onClick={() => formik.handleSubmit()}
-          className={"w-full mt-2"} 
+          className={'w-full mt-2'}
           disabled={!formik.isValid || !formik.dirty}
         />
       </form>
