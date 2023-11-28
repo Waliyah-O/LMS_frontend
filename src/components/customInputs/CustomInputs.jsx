@@ -16,6 +16,7 @@ const CustomInput = ({
   inputError,
   inputErrorRight,
   className,
+  readOnly,
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -37,6 +38,7 @@ const CustomInput = ({
           name={name}
           onBlur={onBlur}
           onChange={onChange}
+          readOnly={readOnly}
           value={value}
           className={`input input-bordered w-full ${inputError ? 'input-error' : ''} ${className || ''}`}
         />
@@ -47,7 +49,7 @@ const CustomInput = ({
             onClick={handleTogglePasswordVisibility}
             className="absolute inset-y-0 right-0 px-2 flex items-center"
           >
-            {isPasswordVisible ? <VisibilityOnIcon  alt="Hide password" /> : <VisibilityOffIcon alt="Show password" />}
+            {isPasswordVisible ? <VisibilityOnIcon alt="Hide password" /> : <VisibilityOffIcon alt="Show password" />}
           </button>
         )}
       </div>

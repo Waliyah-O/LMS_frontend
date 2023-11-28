@@ -141,6 +141,7 @@ const GettingStarted = () => {
           placeholder={'Enter Password'}
           name="password"
         />
+
         <ErrorFields password={formik.values.password} formik={formik} />
 
         <Button

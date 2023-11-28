@@ -8,8 +8,12 @@ import { hasCaps, hasDigit, hasLowerCase, hasSpecialCharacter } from '../../util
 
 const ErrorTexts = ({ text, isError, formik }) => (
   <div className={'flex items-center gap-2 px-1'}>
-    {!formik.errors.password ? <Checkmark /> : isError ? <Error /> : <GreenCheck />}
-    <span className={`text-labels ${!formik.errors.password ? 'text-gray-300' : isError ? 'text-red-500' : 'text-green-500'}`}>{text}</span>
+    {formik.values.password === '' ? <Checkmark /> : isError ? <Error /> : <GreenCheck />}
+    <span
+      className={`text-labels ${formik.values.password === '' ? 'text-gray-300' : isError ? 'text-red-500' : 'text-green-500'}`}
+    >
+      {text}
+    </span>
   </div>
 );
 
@@ -17,6 +21,7 @@ const ErrorFields = ({ password, formik, className }) => {
   const [errors, setErrors] = useState({
     minLength: true,
     uppercase: true,
+    lowercase: true,
     specialCharacter: true,
     number: true,
   });
@@ -37,7 +42,11 @@ const ErrorFields = ({ password, formik, className }) => {
       <ErrorTexts text="At least one uppercase letter" isError={!errors.uppercase} formik={formik} />
       <ErrorTexts text="At least one lowercase character" isError={!errors.lowercase} formik={formik} />
       <ErrorTexts text="At least one number" isError={!errors.number} formik={formik} />
-      <ErrorTexts text="Inclusion of at least one special character, e.g., ! @ # ?" isError={!errors.specialCharacter} formik={formik} />
+      <ErrorTexts
+        text="Inclusion of at least one special character, e.g., ! @ # ?"
+        isError={!errors.specialCharacter}
+        formik={formik}
+      />
     </div>
   );
 };

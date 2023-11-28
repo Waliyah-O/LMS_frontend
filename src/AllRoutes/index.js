@@ -5,6 +5,7 @@ import CompleteProfile from '../components/Forms/Admin/CompleteProfile';
 
 import { Routes, Route } from 'react-router-dom';
 import ForgotPassword from '../pages/ForgotPassword';
+import PasswordReset from '../pages/PasswordReset';
 
 function AllRoutes() {
   return (
@@ -13,8 +14,9 @@ function AllRoutes() {
         <Route exact path="/" element={<Dashboard />} />
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/signup" element={<SignUp />} />
-        <Route path="/signup.completeprofile" element={<CompleteProfile />} />
+        <Route path="/completeprofile" element={<CompleteProfile />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/passwordreset" element={<PasswordReset />} />
       </Routes>
     </>
   );
