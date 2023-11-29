@@ -38,16 +38,15 @@ const AuthLayout = ({ children }) => {
   };
 
   return (
-    <div className=" w-screen flex items-center gap-36 bg-white">
+    <div className="w-screen flex items-center gap-32 bg-white ">
       <ErrorBoundary FallbackComponent={ErrorUI}>
-        <div className=" sm:w-2/5  hidden sm:block">
-          <img className="w-full" src={AuthImage} alt="smiling-girl-image" />
+        <div className="w-2/5  sm:w-2/5  hidden lg:block">
+          <img className="w-full h-full" src={AuthImage} alt="smiling-girl-image" />
         </div>
 
-        <div className=" sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 ">
+        <div className="sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 md:w-full md:p-8 lg:w-2/5">
           <Link to={location.pathname.includes('forgotpassword') ? '/signin' : '/'}>
             <span className="text-black font-medium text-small flex gap-2 items-center">
-              {' '}
               <ArrowNarrowLeft /> {location.pathname.includes('forgotpassword') ? 'Go back to login' : 'Go Home'}
             </span>
           </Link>
