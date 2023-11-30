@@ -6,6 +6,7 @@ const CheckBox = ({ options = [], className, onBlur, name, labelText, inputError
       <label className="label" htmlFor={id}>
         <span className="label-text text-lg">{labelText}</span>
       </label>
+
       <div className="relative">
         {options.map((option) => (
           <label key={option.position} className="flex py-1">
@@ -21,6 +22,7 @@ const CheckBox = ({ options = [], className, onBlur, name, labelText, inputError
           </label>
         ))}
       </div>
+
       {inputError && (
         <label className="label">
           <span className="label-text-alt text-red-600 flex gap-1">
