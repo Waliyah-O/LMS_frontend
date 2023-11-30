@@ -7,10 +7,8 @@ const index = () => {
   const countryOptions = [
     { position: 1, label: 'Nigeria' },
     { position: 2, label: 'Ghana' },
-    { position: 3, label: 'Ghana' },
-    { position: 4, label: 'Ghana' },
-    { position: 5, label: 'Ghana' },
-    { position: 6, label: 'Ghana' },
+    { position: 3, label: 'Egypt' },
+    { position: 4, label: 'Togo' },
   ];
   return (
     <div>
@@ -21,8 +19,8 @@ const index = () => {
       <Link to={'./forgotpassword'}>forgot password</Link> <br />
       <Link to={'./passwordreset'}>Reset Password</Link>
       <CheckBox options={countryOptions} labelText={'Check Box'} className={'checkbox-success'} />
-      <RadioButton options={countryOptions} className={'radio-success'} />
-      <TextArea labelText={'Enter Message'}/>
+      <RadioButton options={countryOptions} className={'radio-success checked:bg-green-700'} labelText={'Pick one'} />
+      <TextArea labelText={'Enter Message'} placeholder={'Enter text....'}/>
     </div>
   );
 };

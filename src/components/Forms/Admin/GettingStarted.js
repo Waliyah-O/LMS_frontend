@@ -86,7 +86,7 @@ const GettingStarted = () => {
 
   return (
     <AuthLayout>
-      <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col gap-1" onSubmit={formik.handleSubmit}>
         <CustomInput
           inputError={formik.touched.organizationName && formik.errors.organizationName}
           onBlur={formik.handleBlur}

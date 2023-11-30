@@ -38,29 +38,31 @@ const AuthLayout = ({ children }) => {
   };
 
   return (
-    <div className="w-screen flex items-center gap-32 bg-white ">
+    <div className="w-screen flex items-center gap-32 bg-white md:p-5 lg:p-0">
       <ErrorBoundary FallbackComponent={ErrorUI}>
-        <div className="w-2/5  sm:w-2/5  hidden lg:block">
-          <img className="w-full h-full" src={AuthImage} alt="smiling-girl-image" />
+        <div className="h-screen w-2/5  sm:w-2/5  hidden lg:block">
+          <img className="w-full h-screen" src={AuthImage} alt="smiling-girl-image" />
         </div>
 
-        <div className="sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 md:w-full md:p-8 lg:w-2/5">
+        <div className="sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 md:w-full lg:w-2/5">
           <Link to={location.pathname.includes('forgotpassword') ? '/signin' : '/'}>
             <span className="text-black font-medium text-small flex gap-2 items-center">
               <ArrowNarrowLeft /> {location.pathname.includes('forgotpassword') ? 'Go back to login' : 'Go Home'}
             </span>
           </Link>
-          <h1 className="mb-3 mt-14 text-xl-heading text-green-500 font-semibold"> {header()}</h1>
-          <p className="mb-5 text-gray-900"> {subHeader()}</p>
-          {children}
-          {(location.pathname === '/signup' || location.pathname === '/signin') && (
-            <p className="mt-5 text-black text-sm font-medium">
-              Have an account?{' '}
-              <Link to={linkTo} className="text-green-500">
-                {location.pathname === '/signup' ? 'Sign In' : 'Sign Up'}
-              </Link>
-            </p>
-          )}
+          <h1 className="my-2 lg:text-xl-heading text-green-500 font-semibold md:text-xl"> {header()}</h1>
+          <p className="mb-2 text-gray-900 md:text-sm"> {subHeader()}</p>
+          <div>
+            {children}
+            {(location.pathname === '/signup' || location.pathname === '/signin') && (
+              <p className=" text-black text-sm font-medium">
+                Have an account?{' '}
+                <Link to={linkTo} className="text-green-500">
+                  {location.pathname === '/signup' ? 'Sign In' : 'Sign Up'}
+                </Link>
+              </p>
+            )}
+          </div>
         </div>
       </ErrorBoundary>
     </div>

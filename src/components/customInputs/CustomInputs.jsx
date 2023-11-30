@@ -40,7 +40,7 @@ const CustomInput = ({
           onChange={onChange}
           readOnly={readOnly}
           value={value}
-          className={`input input-bordered w-full ${inputError ? 'input-error' : ''} ${className || ''}`}
+          className={`input input-bordered w-full  ${inputError ? 'input-error' : ''} ${className || ''}`}
         />
 
         {type === 'password' && (

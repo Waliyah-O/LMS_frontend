@@ -1,24 +1,34 @@
-import { useState } from 'react';
+import ErrorMark from '../../assets/svg/redError.svg';
 
-const CheckBox = ({ options = [], checked, className }) => {
-  const defaultChecked = checked ? checked : false;
-  const [isChecked, setIsChecked] = useState(defaultChecked);
-
+const CheckBox = ({ options = [], className, onBlur, name, labelText, inputError, id }) => {
   return (
     <div>
-      {options.map((option) => (
-        <label key={option.position} className="flex py-1">
-          <input
-            className={`checkbox ${className}`}
-            type="checkBox"
-            name="option"
-            value={option.position}
-            onChange={() => setIsChecked((prev) => !prev)}
-          />
-          <span className="mx-3">{option.label}</span>
+      <label className="label" htmlFor={id}>
+        <span className="label-text text-lg">{labelText}</span>
+      </label>
+      <div className="relative">
+        {options.map((option) => (
+          <label key={option.position} className="flex py-1">
+            <input
+              className={`checkbox ${inputError ? 'input-error' : ''} ${className || ''}`}
+              type="checkBox"
+              name={name}
+              onBlur={onBlur}
+              value={option.position}
+              onChange={() => console.log('checked')}
+            />
+            <span className="mx-3">{option.label}</span>
+          </label>
+        ))}
+      </div>
+      {inputError && (
+        <label className="label">
+          <span className="label-text-alt text-red-600 flex gap-1">
+            <img src={ErrorMark} alt="error mark" />
+            {inputError}
+          </span>
         </label>
-      ))}
-      <p className="text-xs">{isChecked}</p>
+      )}
     </div>
   );
 };

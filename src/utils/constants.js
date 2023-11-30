@@ -14,3 +14,4 @@ export const hasDigit = (value) => {
     return /(.*\d.*)/.test(value);
 };
 
+
