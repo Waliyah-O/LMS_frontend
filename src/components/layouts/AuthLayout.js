@@ -1,7 +1,7 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { Link, useLocation } from 'react-router-dom';
 import { ErrorUI } from '../error/ErrorUi';
-import AuthImage from '../../assets/images/AuthPageImage.jpg';
+// import AuthImage from '../../assets/images/AuthPageImage.jpg';
 import { ReactComponent as ArrowNarrowLeft } from '../../assets/svg/arrow_narrow_left.svg';
 
 const AuthLayout = ({ children }) => {
@@ -38,13 +38,11 @@ const AuthLayout = ({ children }) => {
   };
 
   return (
-    <div className="w-screen flex items-center gap-32 bg-white md:p-5 lg:p-0">
+    <div className="bg-authImage bg-contain bg-left bg-no-repeat w-screen flex items-center gap-32 bg-white md:p-5 lg:p-0">
       <ErrorBoundary FallbackComponent={ErrorUI}>
-        <div className="h-screen w-2/5  sm:w-2/5  hidden lg:block">
-          <img className="w-full h-screen" src={AuthImage} alt="smiling-girl-image" />
-        </div>
+        <div className=" h-screen w-2/5  sm:w-2/5  hidden lg:block"></div>
 
-        <div className="sm:w-2/5 w-full flex-col items-center sm:p-2 p-4 md:w-full lg:w-2/5">
+        <div className="sm:w-2/5 w-full flex-col items-end sm:p-2 p-4">
           <Link to={location.pathname.includes('forgotpassword') ? '/signin' : '/'}>
             <span className="text-black font-medium text-small flex gap-2 items-center">
               <ArrowNarrowLeft /> {location.pathname.includes('forgotpassword') ? 'Go back to login' : 'Go Home'}
