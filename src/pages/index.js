@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import CheckBox from '../components/customInputs/CheckBox';
 import RadioButton from '../components/customInputs/RadioButton';
 import TextArea from '../components/customInputs/TextArea';
+
 // import CustomCarousel from '../components/carousel/CustomCarousel';
 
 const index = () => {
