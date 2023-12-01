@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import CheckBox from '../components/customInputs/CheckBox';
-import RadioButton from '../components/customInputs/RadioButton';
-import TextArea from '../components/customInputs/TextArea';
+import Pagination from '../components/pagination'
+import { useState } from 'react';
 
-const index = () => {
-  const countryOptions = [
-    { position: 1, label: 'Nigeria' },
-    { position: 2, label: 'Ghana' },
-    { position: 3, label: 'Egypt' },
-    { position: 4, label: 'Togo' },
-  ];
+const Index = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPage = 10;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
   return (
     <div>
       <h1>Dashboard</h1>
@@ -18,11 +17,9 @@ const index = () => {
       <Link to={'./signin'}>Signin</Link> <br />
       <Link to={'./forgotpassword'}>forgot password</Link> <br />
       <Link to={'./passwordreset'}>Reset Password</Link>
-      <CheckBox options={countryOptions} labelText={'Check Box'} className={'checkbox-success'} />
-      <RadioButton options={countryOptions} className={'radio-success checked:bg-green-700'} labelText={'Pick one'} />
-      <TextArea labelText={'Enter Message'} placeholder={'Enter text....'}/>
+      <Pagination totalPages={totalPage} currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
   );
 };
 
-export default index;
+export default Index;

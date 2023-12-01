@@ -4,8 +4,8 @@ export const ErrorUI = ({ error, resetErrorBoundary }) => {
       <div className="hero-content text-center" role="alert">
         <div className="max-w-md">
           <p>Something went wrong!</p>
-          <pre>{error.message}</pre>
-          <button className="btn w-full text-white" onClick={resetErrorBoundary}>
+          <pre>{error}</pre>
+          <button className="btn w-full text-black" onClick={resetErrorBoundary}>
             Try again
           </button>
         </div>
