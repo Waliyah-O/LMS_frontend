@@ -1,59 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
-import StepCounter from '../components/Forms/MultiStep-Form/StepCounter';
-import Step1 from '../components/Forms/MultiStep-Form/Step1';
-import Step2 from '../components/Forms/MultiStep-Form/Step2';
-import Step3 from '../components/Forms/MultiStep-Form/Step3';
-import Step4 from '../components/Forms/MultiStep-Form/Step4';
-import Submit from '../components/Forms/MultiStep-Form/Submit';
-import Result from '../components/Forms/MultiStep-Form/Result';
-import AuthLayout from '../components/layouts/AuthLayout';
-import CustomButton from '../components/button/CustomButton';
+import GettingStarted from '../components/Forms/Admin/GettingStarted';
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
+import SideBar from '../components/sidebar/SideBar';
+import Alerts from '../components/alerts/Alerts';
 
 const SignUp = ({ buttonText }) => {
   return (
-    <AuthLayout>
-      <div>
-        <div className=" w-full">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <StepCounter /> <Step1 />
-                </>
-              }
-            />
-            <Route
-              path="/step2"
-              element={
-                <>
-                  <StepCounter /> <Step2 />
-                </>
-              }
-            />
-            <Route
-              path="/step2/step3"
-              element={
-                <>
-                  <StepCounter /> <Step3 />
-                </>
-              }
-            />
-            <Route
-              path="/step3/step4"
-              element={
-                <>
-                  <StepCounter /> <Step4 />
-                </>
-              }
-            />
-            <Route path="/step2/step3/step4/result" element={<Result />} />
-            <Route path="/step2/step3/step4/result" element={<Submit />} />
-          </Routes>
-        </div>
-      </div>
-      <CustomButton>Next</CustomButton>
-    </AuthLayout>
+    <div>
+      {/* <Drawer /> */}
+      <Navbar />
+      <GettingStarted />
+      <Footer />
+      {/* <Alerts alertStyle={'alert-success'} alertType={successAlert()} /> */}
+    </div>
   );
 };
 
