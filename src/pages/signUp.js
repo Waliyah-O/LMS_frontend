@@ -7,11 +7,7 @@ import Alerts from '../components/alerts/Alerts';
 const SignUp = ({ buttonText }) => {
   return (
     <div>
-      {/* <Drawer /> */}
-      <Navbar />
       <GettingStarted />
-      <Footer />
-      {/* <Alerts alertStyle={'alert-success'} alertType={successAlert()} /> */}
     </div>
   );
 };
