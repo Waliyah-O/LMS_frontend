@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
@@ -11,14 +12,14 @@ module.exports = {
         primary: {
           500: '#4361EE',
         },
-        green:{
+        green: {
           500: '#148519',
-          700: '#046C4E'
+          700: '#046C4E',
         },
         gray: {
           300: '#D1D5DB',
-          900: '#111928'
-        }
+          900: '#111928',
+        },
       },
     },
     fontWeight: {
@@ -150,9 +151,12 @@ module.exports = {
       'gray-100': '0px 0px 3px rgba(0, 0, 0, 0.12)',
       'gray-200': '0px 0px 4px rgba(0, 0, 0, 0.13)',
     },
+    backgroundImage: {
+      authImage: "url('../src/assets/images/AuthPageImage.jpg')",
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ["light", "dark"],
+    themes: ['light', 'dark'],
   },
 };
