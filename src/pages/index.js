@@ -3,8 +3,6 @@ import UseCase from '../components/pagination/useCase';
 // import CustomCarousel from '../components/carousel/CustomCarousel';
 
 const Index = () => {
-
-
   //for CustomCarousel
   // const carouselLinks = [
   //   { id: 1, url: 'https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg' },
@@ -21,7 +19,7 @@ const Index = () => {
       <Link to={'./signin'}>Signin</Link> <br />
       <Link to={'./forgotpassword'}>forgot password</Link> <br />
       <Link to={'./passwordreset'}>Reset Password</Link>
-      <UseCase/>
+      <UseCase />
     </div>
   );
 };
