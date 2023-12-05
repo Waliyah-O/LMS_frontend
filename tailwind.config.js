@@ -5,6 +5,10 @@ module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        sora: ['Sora', 'sans-serif'],
+      },
       colors: {
         transparent: 'transparent',
         black: '#000',
@@ -140,6 +144,13 @@ module.exports = {
         '40px',
         {
           letterSpacing: '-2%',
+        },
+      ],
+      'xxl-heading': [
+        '52px',
+        {
+          letterSpacing: '-2%',
+          lineHeight: '125%',
         },
       ],
     },

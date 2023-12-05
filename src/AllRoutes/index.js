@@ -6,12 +6,14 @@ import CompleteProfile from '../components/Forms/Admin/CompleteProfile';
 import { Routes, Route } from 'react-router-dom';
 import ForgotPassword from '../pages/ForgotPassword';
 import PasswordReset from '../pages/PasswordReset';
+import LandingPage from '../pages/LandingPage';
 
 function AllRoutes() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route path="/completeprofile" element={<CompleteProfile />} />
