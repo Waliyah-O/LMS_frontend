@@ -1,5 +1,5 @@
 import { showErrorMessage } from "./auth.actions";
-import * as types from "../types"; 
+import * as types from "../types";
 
 //Dashboard Redux
 
