@@ -1,7 +1,13 @@
 import data from '../pagination/mock-data.json';
 
 const Table = () => {
-  const tableHead = [{ id: 'ID' }, { id: 'FIRST NAME' }, { id: 'LAST NAME' }, { id: 'EMAIL' }, { id: 'PHONE' }];
+  const tableHead = [
+    { key: 's/n', value: 'S/N' },
+    { key: 'firstName', value: 'FIRST NAME' },
+    { key: 'lastName', value: 'LAST NAME' },
+    { key: 'email', value: 'EMAIL' },
+    { key: 'phone', value: 'PHONE' },
+  ];
 
   // const tableData = []
   return (
@@ -9,8 +15,8 @@ const Table = () => {
       <table className="table table-zebra">
         <thead>
           <tr>
-            {tableHead.map((th, index) => {
-              <th key={index}>{th.id}</th>;
+            {tableHead.map((th) => {
+              return <th key={th.key}>{th.value}</th>;
             })}
           </tr>
         </thead>
