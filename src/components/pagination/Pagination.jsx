@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import { usePagination, DOTS } from '../../hooks/usePagination';
 const Pagination = (props) => {
   const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
@@ -24,11 +23,14 @@ const Pagination = (props) => {
 
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <ul className={classnames('join', { [className]: className })}>
+    <ul className={('border-slate-950 join', { [className]: className })}>
       <li
-        className={classnames('join-item', {
-          disabled: currentPage === 1,
-        })}
+        className={
+          ('flex join-item',
+          {
+            disabled: currentPage === 1,
+          })
+        }
         onClick={onPrevious}
       >
         <button className="join-item btn">«</button>
@@ -45,9 +47,12 @@ const Pagination = (props) => {
         return (
           <li
             key={pageNumber}
-            className={classnames('join-item btn', {
-              selected: pageNumber === currentPage,
-            })}
+            className={
+              ('join-item btn',
+              {
+                selected: pageNumber === currentPage,
+              })
+            }
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
@@ -55,9 +60,12 @@ const Pagination = (props) => {
         );
       })}
       <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === lastPage,
-        })}
+        className={
+          ('pagination-item',
+          {
+            disabled: currentPage === lastPage,
+          })
+        }
         onClick={onNext}
       >
         <button className="join-item btn">»</button>
