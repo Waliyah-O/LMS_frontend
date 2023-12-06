@@ -1,7 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { Link, useLocation } from 'react-router-dom';
 import { ErrorUI } from '../error/ErrorUi';
-// import AuthImage from '../../assets/images/AuthPageImage.jpg';
 import { ReactComponent as ArrowNarrowLeft } from '../../assets/svg/arrow_narrow_left.svg';
 
 const AuthLayout = ({ children }) => {

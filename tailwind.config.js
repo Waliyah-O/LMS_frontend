@@ -24,6 +24,9 @@ module.exports = {
           300: '#D1D5DB',
           900: '#111928',
         },
+        red: {
+          550: '#FD0000',
+        },
       },
     },
     fontWeight: {
@@ -165,6 +168,10 @@ module.exports = {
     backgroundImage: {
       authImage: "url('../src/assets/images/AuthPageImage.jpg')",
       bgImage: "url('../src/assets/images/BgImg.jpeg')",
+      courseMgtBg: "url('../src/assets/images/BgImg.jpeg')",
+      userMgtBg: "url('../src/assets/images/courseManagement.png')",
+      trkRprtBg: "url('../src/assets/images/tracking-and-reporting.png')",
+      assessToolsBg: "url('../src/assets/images/assessment-tools.png')",
     },
   },
   plugins: [require('daisyui')],
