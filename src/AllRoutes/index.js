@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import ForgotPassword from '../pages/ForgotPassword';
 import PasswordReset from '../pages/PasswordReset';
 import LandingPage from '../pages/LandingPage';
+import Hero from '../components/layouts/Hero';
 
 function AllRoutes() {
   return (
@@ -19,6 +20,7 @@ function AllRoutes() {
         <Route path="/completeprofile" element={<CompleteProfile />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/hero" element={<Hero />} />
       </Routes>
     </>
   );
