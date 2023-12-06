@@ -11,6 +11,7 @@ import { ButtonSize, ButtonState } from '../components/button/enum';
 import Card from '../components/cards/Card';
 import BFooterImg from '../assets/images/BFooterImg.jpeg';
 import Navbar from '../components/navbar/Navbar';
+import ListComponent from '../components/customInputs/listComponent/ListComponent';
 
 const LandingPage = () => {
   const featuresContent = [
@@ -99,7 +100,7 @@ const LandingPage = () => {
                   style={{
                     background: `linear-gradient(1deg, #020001 0.74%, rgba(2, 0, 1, 0.00) 98.73%), url(${feature.background}) lightgray 50% / cover no-repeat`,
                   }}
-                  className='border-b-red-550 hover:border-none border-b-8'
+                  className="border-b-red-550 hover:border-none border-b-8"
                   key={feature.title}
                 >
                   <Card>
@@ -120,15 +121,19 @@ const LandingPage = () => {
         </div>
       </section>
       <section className="bg-black font-sora">
-        <div className="w-4/5 flex mx-auto justify-content">
-          <div className="w-1/2">
+        <div className="w-full p-24 flex mx-auto gap-12">
+          <div className="">
             <img src={BFooterImg} className="object-contain" />
           </div>
-          <div>
-            <h3 className="text-white font-sora fontWeight-thin text-sm">
-              Empower your business with a victorious digital advantage.
+          <div className="w-4/5 h-full">
+            <h3 className="text-white font-sora font-semibold text-iv">
+              Empower your business with a <br />
+              victorious digital advantage.
             </h3>
-            <div className="flex">
+            <div>
+              <ListComponent />
+            </div>
+            <div className="flex gap-6">
               <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
               <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             </div>
