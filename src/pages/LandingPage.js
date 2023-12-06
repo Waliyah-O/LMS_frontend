@@ -12,6 +12,7 @@ import Card from '../components/cards/Card';
 import BFooterImg from '../assets/images/BFooterImg.jpeg';
 import Navbar from '../components/navbar/Navbar';
 import ListComponent from '../components/customInputs/listComponent/ListComponent';
+// import FeaturesComponent from '../components/featuresComponent/FeaturesComponent';
 
 const LandingPage = () => {
   const featuresContent = [
@@ -38,6 +39,29 @@ const LandingPage = () => {
       description:
         'Create dynamic quizzes, exams, and assignments to evaluate learner understanding. Enjoy customizable grading options, real-time feedback, and adaptive assessments that cater to diverse learning styles.',
       background: assessTools,
+    },
+  ];
+
+  const listItems = [
+    {
+      id: 1,
+      element: 'Centralized organization',
+    },
+    {
+      id: 2,
+      element: 'Enhanced accessibility',
+    },
+    {
+      id: 3,
+      element: 'Improved communication',
+    },
+    {
+      id: 4,
+      element: 'Streamlined grading and feedback',
+    },
+    {
+      id: 5,
+      element: 'Effective tracking and reporting',
     },
   ];
 
@@ -127,11 +151,10 @@ const LandingPage = () => {
           </div>
           <div className="w-4/5 h-full">
             <h3 className="text-white font-sora font-semibold text-iv">
-              Empower your business with a <br />
-              victorious digital advantage.
+              Empower your business with a victorious digital advantage.
             </h3>
             <div>
-              <ListComponent />
+              <ListComponent plist={listItems} />
             </div>
             <div className="flex gap-6">
               <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
@@ -140,6 +163,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* <FeaturesComponent image={BFooterImg} header="Empower your business with a victorious digital advantage." /> */}
 
       <footer className="footer bg-gray-700 text-neutral-content h-40 flex justify-between items-center">
         <aside className="pl-16">
