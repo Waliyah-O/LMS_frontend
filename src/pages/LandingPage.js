@@ -3,6 +3,7 @@ import arrowRight from '../assets/svg/arrow-narrow-right.svg';
 import { Link } from 'react-router-dom';
 import Button from '../components/button';
 import { ButtonSize, ButtonState } from '../components/button/enum';
+import BFooterImg from '../assets/images/BFooterImg.jpeg';
 
 const LandingPage = () => {
   return (
@@ -43,7 +44,10 @@ const LandingPage = () => {
       </section>
 
       <section>
-        <h2>Another section</h2>
+        <div>
+          <img src={BFooterImg} />
+        </div>
+        <div></div>
       </section>
     </div>
   );
