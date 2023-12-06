@@ -164,6 +164,7 @@ module.exports = {
     },
     backgroundImage: {
       authImage: "url('../src/assets/images/AuthPageImage.jpg')",
+      bgImage: "url('../src/assets/images/BgImg.jpeg')",
     },
   },
   plugins: [require('daisyui')],
