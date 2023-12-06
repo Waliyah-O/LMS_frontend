@@ -43,11 +43,19 @@ const LandingPage = () => {
         </aside>
       </section>
 
-      <section>
-        <div>
-          <img src={BFooterImg} />
+      <section className="bg-black">
+        <div className="w-4/5 flex mx-auto">
+          <div className="w-1/2">
+            <img src={BFooterImg} className="object-contain" />
+          </div>
+          <div>
+            <h3 className="text-white font-inter">Empower your business with a victorious digital advantage.</h3>
+            <div className="flex">
+              <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+              <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+            </div>
+          </div>
         </div>
-        <div></div>
       </section>
     </div>
   );
