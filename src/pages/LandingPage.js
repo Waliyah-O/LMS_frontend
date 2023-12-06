@@ -3,6 +3,7 @@ import arrowRight from '../assets/svg/arrow-narrow-right.svg';
 import { Link } from 'react-router-dom';
 import Button from '../components/button';
 import { ButtonSize, ButtonState } from '../components/button/enum';
+import BFooterImg from '../assets/images/BFooterImg.jpeg';
 
 const LandingPage = () => {
   return (
@@ -42,8 +43,21 @@ const LandingPage = () => {
         </aside>
       </section>
 
-      <section>
-        <h2>Another section</h2>
+      <section className="bg-black font-sora">
+        <div className="w-4/5 flex mx-auto justify-content">
+          <div className="w-1/2">
+            <img src={BFooterImg} className="object-contain" />
+          </div>
+          <div>
+            <h3 className="text-white font-sora fontWeight-thin text-sm">
+              Empower your business with a victorious digital advantage.
+            </h3>
+            <div className="flex">
+              <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+              <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

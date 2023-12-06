@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Table from '../components/table/Table';
+import Card from '../components/cards/Card';
 
 const Index = () => {
   return (
@@ -10,7 +10,7 @@ const Index = () => {
       <Link to={'./signin'}>Signin</Link> <br />
       <Link to={'./forgotpassword'}>forgot password</Link> <br />
       <Link to={'./passwordreset'}>Reset Password</Link>
-      <Table />
+      <Card />
     </div>
   );
 };
