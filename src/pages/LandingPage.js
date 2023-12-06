@@ -13,7 +13,7 @@ const LandingPage = () => {
         }}
         className="h-screen"
       >
-        <header className="text-white text-sm flex justify-end items-center gap-3 p-7 mx-14 font-inter">
+        <header className="text-white text-sm flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
           <Link>Why i-Academy</Link>
           <Link>Organization Benefits</Link>
           <Link>FAQs</Link>
@@ -23,12 +23,12 @@ const LandingPage = () => {
           <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
         </header>
 
-        <aside className="w-full flex items-start justify-center flex-col gap-6 p-16">
-          <h1 className="text-white font-sora text-xxl-heading w-3/5">
+        <aside className="w-full flex flex-col items-center  lg:items-start justify-center lg:justify-between lg:flex-wrap gap-6 p-4 lg:p-16">
+          <h1 className="text-white font-sora text-xxl lg:text-xxl-heading lg:w-3/5 text-center lg:text-left">
             Seamless Learning management processes from Start to Finish.
           </h1>
 
-          <p className="text-slate-400 w-1/2">
+          <p className="text-slate-400 w-full lg:w-1/2 text-center lg:text-left">
             Experience a comprehensive and flawless training journey that covers every stage, from initial job posting to final
             candidate onboarding, fostering a seamless and integrated Learning systems.
           </p>

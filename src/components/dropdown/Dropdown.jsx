@@ -1,18 +1,15 @@
-// import React from 'react';
-
-const Dropdown = () => {
+const Dropdown = ({ dropDownType, items, text }) => {
   return (
-    <div className="dropdown dropdown-bottom">
+    <div className={`dropdown ${dropDownType}`}>
       <div tabIndex={0} role="button" className="btn m-1">
-        Click
+        {text}
       </div>
       <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
-          <a>Item 1</a>
-        </li>
-        <li>
-          <a>Item 2</a>
-        </li>
+        {items.map((item, index) => (
+          <li key={index}>
+            <a>{item}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
