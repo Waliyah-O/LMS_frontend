@@ -81,6 +81,12 @@ module.exports = {
           lineHeight: '2rem',
         },
       ],
+      iv: [
+        '1.7rem',
+        {
+          lineHeight: '2.5rem',
+        },
+      ],
       buttonText: [
         '14px',
         {
