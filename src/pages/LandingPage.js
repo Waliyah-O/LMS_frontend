@@ -99,7 +99,7 @@ const LandingPage = () => {
                   style={{
                     background: `linear-gradient(1deg, #020001 0.74%, rgba(2, 0, 1, 0.00) 98.73%), url(${feature.background}) lightgray 50% / cover no-repeat`,
                   }}
-                  className='border-b-red-550 hover:border-none border-b-8'
+                  className="border-b-red-550 hover:border-none border-b-8"
                   key={feature.title}
                 >
                   <Card>
