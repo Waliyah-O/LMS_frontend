@@ -25,6 +25,7 @@ const Hero = ({ mainText, isButton }) => {
 
         <section className="flex flex-col items-center gap-8">
           <h1 className="text-white font-sora font-extrabold text-xxl lg:text-xxl-heading lg:w-3/5 text-center">{mainText}</h1>
+
           {isButton && (
             <Button
               variant={ButtonState.SECONDARY}
