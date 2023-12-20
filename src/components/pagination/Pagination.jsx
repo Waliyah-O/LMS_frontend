@@ -24,16 +24,8 @@ const Pagination = (props) => {
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
     <ul className={('border-slate-950 join', { [className]: className })}>
-      <li
-        className={
-          ('flex join-item',
-          {
-            disabled: currentPage === 1,
-          })
-        }
-        onClick={onPrevious}
-      >
-        <button className="join-item btn">«</button>
+      <li className={`join-item btn ${currentPage === 1 ? 'btn-disabled' : null}`} onClick={onPrevious}>
+        <button className="">«</button>
       </li>
       {paginationRange.map((pageNumber) => {
         if (pageNumber === DOTS) {
@@ -47,27 +39,14 @@ const Pagination = (props) => {
         return (
           <li
             key={pageNumber}
-            className={
-              ('join-item btn',
-              {
-                selected: pageNumber === currentPage,
-              })
-            }
+            className={`join-item btn ${pageNumber === currentPage ? 'bg-red-600' : null}`}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
           </li>
         );
       })}
-      <li
-        className={
-          ('pagination-item',
-          {
-            disabled: currentPage === lastPage,
-          })
-        }
-        onClick={onNext}
-      >
+      <li className={`join-item btn ${currentPage === lastPage ? 'btn-disabled' : null}`} onClick={onNext}>
         <button className="join-item btn">»</button>
       </li>
     </ul>

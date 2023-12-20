@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import Pagination from './Pagination';
 import data from './mock-data.json';
 
-let PageSize = 10;
+let PageSize = 5;
 
 export default function UseCase() {
   const [currentPage, setCurrentPage] = useState(1);
