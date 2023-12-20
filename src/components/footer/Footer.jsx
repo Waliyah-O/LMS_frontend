@@ -1,4 +1,3 @@
-// import footerItems from './footerItems';
 import { Link } from 'react-router-dom';
 
 import academyLogo from '../../assets/svg/academyLogo.svg';
