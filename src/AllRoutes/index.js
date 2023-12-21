@@ -6,8 +6,8 @@ import CompleteProfile from '../components/Forms/Admin/CompleteProfile';
 import { Routes, Route } from 'react-router-dom';
 import ForgotPassword from '../pages/ForgotPassword';
 import PasswordReset from '../pages/PasswordReset';
-import LandingPage from '../pages/LandingPage';
-import WhyPage from '../pages/WhyPage';
+import LandingPage from '../pages/marketing-website/LandingPage';
+import WhyPage from '../pages/marketing-website/WhyPage';
 
 function AllRoutes() {
   return (

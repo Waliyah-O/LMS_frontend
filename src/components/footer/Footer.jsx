@@ -1,23 +1,46 @@
-import footerItems from './footerItems';
+// import footerItems from './footerItems';
+import logo from '../../assets/svg/academy-logo-white-icon.svg';
+import LinkedIn from '../../assets/svg/linkedIn.svg';
+import xLogo from '../../assets/svg/x.svg';
+import threadsLogo from '../../assets/svg/threads.svg';
+import facebook from '../../assets/svg/facebook.svg';
+import instagram from '../../assets/svg/instagram.svg';
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-base-200 text-teal-800 rounded">
-        <nav>
-          <div className="grid grid-flow-col gap-4">
-            {footerItems.map((item, index) => (
-              <a key={index}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-                  <path d={item.path}></path>
-                </svg>
-              </a>
-            ))}
-          </div>
-        </nav>
-        <aside>
-          <p>Copyright © 2023 - Learning Management System</p>
+      <footer className="footer bg-gray-700 text-neutral-content h-40 flex justify-between items-center">
+        <aside className="pl-16">
+          <img src={logo} alt="logo" />
         </aside>
+
+        <div>
+          <p className=" text-base opacity-60">© 2023 i-Academy, All rights reserved.</p>
+        </div>
+
+        <section className="pr-3">
+          <div className="flex gap-4 ">
+            <p>
+              <img src={LinkedIn} alt="" />
+            </p>
+
+            <p>
+              <img src={xLogo} alt="xLogo" />
+            </p>
+
+            <p>
+              <img src={threadsLogo} alt="threadsLogo" />
+            </p>
+
+            <p>
+              <img src={facebook} alt="facebook" />
+            </p>
+
+            <p>
+              <img src={instagram} alt="instagram" />
+            </p>
+          </div>
+        </section>
       </footer>
     </div>
   );
