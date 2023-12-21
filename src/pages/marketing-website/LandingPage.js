@@ -44,7 +44,7 @@ const LandingPage = () => {
     },
   ];
 
-  const listItems = [
+  const listContent = [
     {
       id: 1,
       element: 'Centralized organization',
@@ -73,93 +73,35 @@ const LandingPage = () => {
 
       <Hero />
 
-      {/* <section className=" h-full flex w-full p-24 flex-col gap-14 ">
-        <article className="flex flex-col gap-4 self-stretch w-full h-52 items-center justify-center">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="self-stretch text-center font-sora text-l-headline font-bold text-gray-900">
-              Unleash the Power of Intuitive <br /> System Management.
-            </h2>
-            <h2 className="w-9/12 text-center font-inter font-normal text-xl">
-              Our solution includes reporting and analytics tools that provide insights into user engagement, completion rates,
-              assessment scores, and other metrics. These can be used to evaluate the effectiveness of training programs.
-            </h2>
-          </div>
-        </article>
-        <div className="">
-          <div className="grid grid-cols-2 gap-3">
-            {featuresContent.map((feature) => {
-              return (
-                <div
-                  style={{
-                    background: `linear-gradient(1deg, #020001 0.74%, rgba(2, 0, 1, 0.00) 98.73%), url(${feature.background}) lightgray 50% / cover no-repeat`,
-                  }}
-                  className="border-b-red-550 hover:border-none border-b-8"
-                  key={feature.title}
-                >
-                  <Card>
-                    <div
-                      className={`absolute bg-transparent -bottom-24 w-full p-10 flex flex-col group-hover:bottom-20 group-hover:duration-600 duration-500 gap-2`}
-                    >
-                      <div className="flex justify-between">
-                        <span className="text-white-400 font-extrabold text-l-headline">{feature.title}</span>
-                        <img className="group-hover:invisible" src={featuresArrow} alt="arrow" />
-                      </div>
-                      <p className="text-slate-100 text-sm">{feature.description}</p>
-                    </div>
-                  </Card>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      <section className="bg-black font-sora">
-        <div className="w-full p-24 flex mx-auto gap-12">
-          <div className="">
-            <img src={BFooterImg} className="object-contain" />
-          </div>
-          <div className="w-4/5 h-full">
-            <h3 className="text-white font-sora font-semibold text-iv">
-              Empower your business with a victorious digital advantage.
-            </h3>
-            <div>
-              <ListComponent plist={listItems} />
-            </div>
-            <div className="flex gap-6">
-              <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-              <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section className="h-full flex w-full p-4 lg:p-24 flex-col gap-6">
         <article className="flex flex-col gap-4 self-stretch w-full h-auto items-center justify-center">
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-center font-sora text-l-headline font-bold text-gray-900">
               Unleash the Power of Intuitive <br /> System Management.
             </h2>
+
             <h2 className="text-center font-inter font-normal text-xl">
               Our solution includes reporting and analytics tools that provide insights into user engagement, completion rates,
               assessment scores, and other metrics. These can be used to evaluate the effectiveness of training programs.
             </h2>
           </div>
         </article>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {featuresContent.map((feature) => (
             <div
               style={{
                 background: `linear-gradient(1deg, #020001 0.74%, rgba(2, 0, 1, 0.00) 98.73%), url(${feature.background}) lightgray 50% / cover no-repeat`,
               }}
-              className="border-b-red-550 hover:border-none border-b-8"
+              className="border-b-red-550 hover:border-none border-b-8 rounded-t-xl"
               key={feature.title}
             >
               <Card>
                 <div
-                  className={`absolute bg-transparent -bottom-24 w-full p-10 flex flex-col group-hover:bottom-20 group-hover:duration-600 duration-500 gap-2`}
+                  className={`absolute bg-transparent -bottom-1/2 p-8 sm:-bottom-24 w-full sm:p-10 flex flex-col group-hover:bottom-2 group-hover:duration-600 duration-500 gap-2 transition-all ease-out`}
                 >
-                  <div className="flex justify-between">
-                    <span className="text-white-400 font-extrabold text-l-headline">{feature.title}</span>
+                  <div className="flex items-start justify-between">
+                    <span className="text-white-400 font-extrabold text-xl md:text-2xl lg:text-l-headline">{feature.title}</span>
                     <img className="group-hover:invisible" src={featuresArrow} alt="arrow" />
                   </div>
                   <p className="text-slate-100 text-sm">{feature.description}</p>
@@ -171,19 +113,21 @@ const LandingPage = () => {
       </section>
 
       <section className="bg-black font-sora">
-        <div className="w-full p-4 lg:p-24 flex flex-col items-center lg:flex-row mx-auto gap-12">
-          <div className="lg:w-4/6 flex-1">
-            <img src={BFooterImg} className="" alt="Footer Image" />
+        <div className="w-full p-4 lg:p-24 flex flex-col items-center py-6 lg:flex-row gap-8">
+          <div className="p-3 lg:w-9/12">
+            <img src={BFooterImg} className="rounded-md" alt="Footer Image" />
           </div>
 
-          <div className="w-full lg:w-1/2 flex-1 flex flex-col">
+          <div className="w-full lg:w-1/2 flex flex-col p-4">
             <h3 className="text-white font-sora font-semibold text-iv">
               Empower your business with a victorious digital advantage.
             </h3>
+
             <div>
-              <ListComponent plist={listItems} />
+              <ListComponent listItems={listContent} />
             </div>
-            <div className="flex flex-col lg:flex-row gap-6">
+
+            <div className="flex flex-col lg:flex-row gap-3">
               <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
               <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             </div>
@@ -191,7 +135,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* <FeaturesComponent image={BFooterImg} header="Empower your business with a victorious digital advantage." /> */}
       <Footer />
     </div>
   );
