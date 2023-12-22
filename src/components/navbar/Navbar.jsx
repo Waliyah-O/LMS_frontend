@@ -28,13 +28,11 @@ const Navbar = () => {
             <img src={logo} alt="logo" />
           </div>
           <div className="md:hidden">
-            {/* Show on small screens */}
             <MobileMenu menuItems={menuItems} />
           </div>
         </div>
 
         <div className="hidden md:flex gap-10 font-medium">
-          {/* Hide on small screens */}
           <Link
             className={`cursor-pointer ${
               selectedTab === 'candidates'

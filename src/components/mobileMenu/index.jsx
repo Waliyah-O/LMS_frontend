@@ -37,7 +37,7 @@ import { ButtonSize, ButtonState } from '../button/enum';
 const MobileMenu = ({ menuItems }) => {
   return (
     <div>
-      <div className="drawer drawer-end">
+      <div className="drawer drawer-end z-10">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost">
