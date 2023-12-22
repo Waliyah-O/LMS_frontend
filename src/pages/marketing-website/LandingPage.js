@@ -10,9 +10,9 @@ import BFooterImg from '../../assets/images/BFooterImg.jpeg';
 import Button from '../../components/button';
 import { ButtonSize, ButtonState } from '../../components/button/enum';
 import Card from '../../components/cards/Card';
-import Navbar from '../../components/navbar/Navbar';
+// import Navbar from '../../components/navbar/Navbar';
 import ListComponent from '../../components/customInputs/listComponent/ListComponent';
-import Footer from '../../components/footer/Footer';
+// import Footer from '../../components/footer/Footer';
 import Hero from '../../components/heroSection/Hero';
 // import FeaturesComponent from '../components/featuresComponent/FeaturesComponent';
 
@@ -69,18 +69,16 @@ const LandingPage = () => {
 
   return (
     <div>
-      <Navbar />
-
       <Hero />
 
       <section className="h-full flex w-full p-4 lg:p-24 flex-col gap-6">
         <article className="flex flex-col gap-4 self-stretch w-full h-auto items-center justify-center">
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-center font-sora text-l-headline font-bold text-gray-900">
+            <h2 className="text-center font-sora text-xl sm:text-2xl md:text-3xl lg:text-l-headline font-bold text-gray-900">
               Unleash the Power of Intuitive <br /> System Management.
             </h2>
 
-            <h2 className="text-center font-inter font-normal text-xl">
+            <h2 className="text-center font-inter text-sm sm:text-base md:text-lg lg:text-xl p-4 lg:w-4/6">
               Our solution includes reporting and analytics tools that provide insights into user engagement, completion rates,
               assessment scores, and other metrics. These can be used to evaluate the effectiveness of training programs.
             </h2>
@@ -98,13 +96,13 @@ const LandingPage = () => {
             >
               <Card>
                 <div
-                  className={`absolute bg-transparent -bottom-1/2 p-8 sm:-bottom-24 w-full sm:p-10 flex flex-col group-hover:bottom-2 group-hover:duration-600 duration-500 gap-2 transition-all ease-out`}
+                  className={`absolute bg-transparent -bottom-36 p-8 sm:-bottom-24 w-full sm:p-10 flex flex-col group-hover:bottom-2 group-hover:duration-600 duration-500 gap-2 transition-all ease-out`}
                 >
                   <div className="flex items-start justify-between">
-                    <span className="text-white-400 font-extrabold text-xl md:text-2xl lg:text-l-headline">{feature.title}</span>
+                    <span className="text-white-400 font-extrabold text-lg md:text-2xl lg:text-l-headline">{feature.title}</span>
                     <img className="group-hover:invisible" src={featuresArrow} alt="arrow" />
                   </div>
-                  <p className="text-slate-100 text-sm">{feature.description}</p>
+                  <p className="text-slate-100 text-sm -my-0">{feature.description}</p>
                 </div>
               </Card>
             </div>
@@ -119,7 +117,7 @@ const LandingPage = () => {
           </div>
 
           <div className="w-full lg:w-1/2 flex flex-col p-4">
-            <h3 className="text-white font-sora font-semibold text-iv">
+            <h3 className="text-white font-sora font-semibold text-xl lg:text-iv">
               Empower your business with a victorious digital advantage.
             </h3>
 
@@ -134,8 +132,6 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

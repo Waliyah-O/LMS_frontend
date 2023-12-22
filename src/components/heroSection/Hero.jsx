@@ -17,7 +17,7 @@ const Hero = ({ mainText, isButton }) => {
           }}
           className="h-screen flex flex-col justify-between"
         >
-          <header className="text-white text-sm flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
+          <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
             <Link>Why i-Academy</Link>
             <Link>Organization Benefits</Link>
             <Link>FAQs</Link>
@@ -49,7 +49,7 @@ const Hero = ({ mainText, isButton }) => {
           }}
           className="h-screen"
         >
-          <header className="text-white text-sm flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
+          <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
             <Link>Why i-Academy</Link>
             <Link>Organization Benefits</Link>
             <Link>FAQs</Link>
