@@ -5,16 +5,11 @@ import courseMgt from '../../assets/images/courseManagement.png';
 import userMgt from '../../assets/images/user-management.png';
 import trackAndRep from '../../assets/images/tracking-and-reportimg.png';
 import assessTools from '../../assets/images/assessment-tools.png';
-import BFooterImg from '../../assets/images/BFooterImg.jpeg';
-// import { Link } from 'react-router-dom';
-import Button from '../../components/button';
-import { ButtonSize, ButtonState } from '../../components/button/enum';
+import lastImg from '../../assets/images/landingPageImg.png';
+
 import Card from '../../components/cards/Card';
-// import Navbar from '../../components/navbar/Navbar';
-import ListComponent from '../../components/customInputs/listComponent/ListComponent';
-// import Footer from '../../components/footer/Footer';
+import ListComponent from '../../components/listComponent/ListComponent';
 import Hero from '../../components/heroSection/Hero';
-// import FeaturesComponent from '../components/featuresComponent/FeaturesComponent';
 
 const LandingPage = () => {
   const featuresContent = [
@@ -110,28 +105,15 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-black font-sora">
-        <div className="w-full p-4 lg:p-24 flex flex-col items-center py-6 lg:flex-row gap-8">
-          <div className="p-3 lg:w-9/12">
-            <img src={BFooterImg} className="rounded-md" alt="Footer Image" />
-          </div>
-
-          <div className="w-full lg:w-1/2 flex flex-col p-4">
-            <h3 className="text-white font-sora font-semibold text-xl lg:text-iv">
-              Empower your business with a victorious digital advantage.
-            </h3>
-
-            <div>
-              <ListComponent listItems={listContent} />
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-3">
-              <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-              <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ListComponent
+        bg={'bg-black'}
+        flexDirection={'flex-row'}
+        src={lastImg}
+        headerText={'Empower your business with a victorious digital advantage.'}
+        listItems={listContent}
+        listTextColor={'text-white'}
+        isButton={true}
+      />
     </div>
   );
 };

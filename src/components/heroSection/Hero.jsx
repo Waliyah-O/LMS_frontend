@@ -1,12 +1,17 @@
 import heroImg from '../../assets/images/heroImg.jpeg';
 import BgImg from '../../assets/images/BgImg.jpeg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
 import arrowRight from '../../assets/svg/arrow-narrow-right.svg';
 
 const Hero = ({ mainText, isButton }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const goToSignUp = () => {
+    navigate('/signup');
+  };
 
   return (
     <div>
@@ -15,20 +20,20 @@ const Hero = ({ mainText, isButton }) => {
           style={{
             background: `linear-gradient(0deg, rgba(17, 25, 40, 0.80) 0%, rgba(17, 25, 40, 0.80) 100%), url(${heroImg}) lightgray 50% / cover no-repeat`,
           }}
-          className="h-full flex flex-col justify-between"
+          className="h-screen flex flex-col"
         >
           <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
-            <Link>Why i-Academy</Link>
+            <Link to={'/why'}>Why i-Academy</Link>
             <Link>Organization Benefits</Link>
             <Link>FAQs</Link>
             <Link>Contact us</Link>
 
-            <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+            <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
           </header>
 
-          <section className="flex flex-col items-center gap-8">
-            <h1 className="text-white font-sora font-extrabold text-xxl lg:text-xxl-heading lg:w-3/5 text-center">{mainText}</h1>
+          <section className="flex flex-col items-center h-full gap-12 justify-center lg:gap-8 lg:h-2/3">
+            <h1 className="text-white font-sora font-extrabold text-xl lg:text-xxl-heading lg:w-3/5 text-center">{mainText}</h1>
 
             {isButton && (
               <Button
@@ -55,7 +60,7 @@ const Hero = ({ mainText, isButton }) => {
             <Link>FAQs</Link>
             <Link>Contact us</Link>
 
-            <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+            <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
           </header>
 

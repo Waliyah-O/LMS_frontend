@@ -19,7 +19,7 @@ const Footer = () => {
           <p className="text-base opacity-60">© 2023 i-Academy, All rights reserved.</p>
         </div>
 
-        <nav className="flex gap-4">
+        <section className="flex gap-4">
           <Link to="/">
             <img src={linkedIn} alt="linkedIn-logo" />
           </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
           <Link to="/">
             <img src={instagram} alt="instagram-logo" />
           </Link>
-        </nav>
+        </section>
       </footer>
     </div>
   );

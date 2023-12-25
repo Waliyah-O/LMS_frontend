@@ -8,6 +8,7 @@ const Button = ({
   iconRight,
   className,
   disabled,
+  onClick,
   isLoading = false,
   ...props
 }) => {
@@ -16,6 +17,7 @@ const Button = ({
       className={`disabled:cursor-not-allowed disabled:opacity-50 ${className} ${variant} ${size}`}
       disabled={disabled}
       {...props}
+      onClick={onClick}
     >
       {isLoading && <span className="loading loading-spinner"></span>}
       {icon && <span className={'mr-2'}>{icon}</span>}
