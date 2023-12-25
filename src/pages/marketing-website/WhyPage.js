@@ -56,6 +56,7 @@ const WhyPage = () => {
           headerText={'Excellence in Learning with Cutting-Edge Goals.'}
           listItems={listContent}
           flexDirection={'flex-row-reverse'}
+          isButton={true}
         />
       </section>
     </div>

@@ -26,18 +26,17 @@ const ListComponent = ({
 
             <div>
               {listItems ? (
-                <ul className="font-inter text-sm list-none">
+                <ul className="font-inter text-labels list-none">
                   {listItems.map((item) => (
                     <li key={item.id} className="flex items-center gap-3 p-2 my-1">
                       <img className="h-8 w-8" src={LogoBullets} />
-                      {item.element}
+                      <span>{item.element}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
                 <section className="flex flex-col gap-6">
                   <p>{bodyTextOne}</p>
-                  {/* <br /> */}
                   <p>{bodyTextTwo}</p>
                 </section>
               )}
@@ -46,7 +45,7 @@ const ListComponent = ({
             {isButton && (
               <div className="flex flex-col lg:flex-row gap-3">
                 <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-                <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+                <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" />
               </div>
             )}
           </div>

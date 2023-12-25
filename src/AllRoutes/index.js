@@ -9,6 +9,7 @@ import PasswordReset from '../pages/PasswordReset';
 import LandingPage from '../pages/marketing-website/LandingPage';
 import WhyPage from '../pages/marketing-website/WhyPage';
 import Navigation from '../components/layouts/Navigation';
+import OrganizationBenefits from '../pages/marketing-website/OrganizationBenefits';
 
 function AllRoutes() {
   return (
@@ -17,6 +18,7 @@ function AllRoutes() {
         <Route element={<Navigation />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/why" element={<WhyPage />} />
+          <Route path="/benefits" element={<OrganizationBenefits />} />
         </Route>
 
         <Route exact path="/dashboard" element={<Dashboard />} />
