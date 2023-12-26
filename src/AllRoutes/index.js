@@ -6,10 +6,11 @@ import CompleteProfile from '../components/Forms/Admin/CompleteProfile';
 import { Routes, Route } from 'react-router-dom';
 import ForgotPassword from '../pages/ForgotPassword';
 import PasswordReset from '../pages/PasswordReset';
-import LandingPage from '../pages/marketing-website/LandingPage';
-import WhyPage from '../pages/marketing-website/WhyPage';
+import LandingPage from '../pages/marketing-website/LandingPage/LandingPage';
+import WhyPage from '../pages/marketing-website/WhyPage/WhyPage';
 import Navigation from '../components/layouts/Navigation';
-import OrganizationBenefits from '../pages/marketing-website/OrganizationBenefits';
+import OrganizationBenefits from '../pages/marketing-website/OrganizationBenefits/OrganizationBenefits';
+import FAQpage from '../pages/marketing-website/FAQs/FAQpage';
 
 function AllRoutes() {
   return (
@@ -19,6 +20,7 @@ function AllRoutes() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/why" element={<WhyPage />} />
           <Route path="/benefits" element={<OrganizationBenefits />} />
+          <Route path="/faq" element={<FAQpage />} />
         </Route>
 
         <Route exact path="/dashboard" element={<Dashboard />} />

@@ -32,7 +32,7 @@ const Hero = ({ mainText, isButton }) => {
             <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
           </header>
 
-          <section className="flex flex-col items-center h-full gap-12 justify-center lg:gap-8 lg:h-2/3">
+          <section className="flex flex-col items-center h-full gap-12 justify-around lg:gap-8 lg:h-1/2">
             <h1 className="text-white font-sora font-extrabold text-xl lg:text-xxl-heading lg:w-3/5 text-center">{mainText}</h1>
 
             {isButton && (
