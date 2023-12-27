@@ -1,9 +1,9 @@
-import GettingStarted from '../components/Forms/Admin/GettingStarted';
+// import GettingStarted from '../components/Forms/Admin/GettingStarted';
 
 const SignUp = () => {
   return (
     <div>
-      <GettingStarted />
+      
     </div>
   );
 };

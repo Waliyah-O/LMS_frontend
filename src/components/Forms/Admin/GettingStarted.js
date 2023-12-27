@@ -143,7 +143,7 @@ const GettingStarted = () => {
       <ErrorFields password={formik.values.password} formik={formik} />
 
       <Button
-        value={'Sign Up'}
+        value={'Next'}
         size={ButtonSize.lg}
         variant={ButtonState.PRIMARY}
         type={'Button'}
