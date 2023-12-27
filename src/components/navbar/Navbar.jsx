@@ -15,7 +15,7 @@ const Navbar = () => {
     { label: 'For Candidates', to: '#' },
     { label: 'For Organizations', to: '#' },
     { label: 'Why i-Academy', to: '/why' },
-    { label: 'Organization Benefits', to: '#' },
+    { label: 'Organization Benefits', to: '/benefits' },
     { label: 'FAQs', to: '#' },
     { label: 'Contact us', to: '#' },
   ];
@@ -25,7 +25,9 @@ const Navbar = () => {
       <nav className="bg-black text-white flex gap-12 h-20 items-center pt-6 p-4 md:pl-16">
         <div className="flex justify-between items-center w-full md:w-auto ">
           <div>
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="md:hidden">
             <MobileMenu menuItems={menuItems} />
