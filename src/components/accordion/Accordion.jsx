@@ -13,17 +13,17 @@ const Accordion = ({ content }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
+    <div>
       {content.map((item) => (
-        <div key={item.id} className="collapse collapse-arrow bg-base-200 sm:w-3/4">
+        <div key={item.id} className="collapse collapse-arrow bg-base-200 my-3 mx-auto w-4/5">
           <input
             type="radio"
             name="my-accordion-2"
             checked={openAccordions[item.id]}
             onChange={() => handleToggleAccordion(item.id)}
           />
-          <div className="collapse-title text-lg sm:text-xl font-medium p-0 sm:p-0">{item.question}</div>
-          <div className={`collapse-content text-sm sm:text-base p-4 sm:p-6 ${openAccordions[item.id] ? 'open' : ''}`}>
+          <div className="collapse-title text-lg font-medium">{item.question}</div>
+          <div className={`collapse-content ${openAccordions[item.id] ? 'open' : ''}`}>
             <p>{item.response}</p>
           </div>
         </div>
