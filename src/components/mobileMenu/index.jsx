@@ -3,6 +3,13 @@ import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
 
 const MobileMenu = ({ menuItems }) => {
+  const closeMenu = () => {
+    const drawerCheckbox = document.getElementById('my-drawer-4');
+    if (drawerCheckbox) {
+      drawerCheckbox.checked = false;
+    }
+  };
+
   return (
     <div>
       <div className="drawer drawer-end z-10">
@@ -14,19 +21,24 @@ const MobileMenu = ({ menuItems }) => {
             </svg>
           </label>
         </div>
+
         <div className="drawer-side">
           <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
             {menuItems &&
               menuItems.map((item) => (
                 <li key={item.label}>
-                  <Link className="font-bold bg-transparent hover:border-b-2 border-red-500 p-4 my-2" to={item.to}>
+                  <Link
+                    className="font-bold bg-transparent hover:border-b-2 border-red-500 p-4 my-2"
+                    to={item.to}
+                    onClick={closeMenu}
+                  >
                     {item.label}
                   </Link>
                 </li>
               ))}
-            <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" />
-            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+            <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={closeMenu} />
+            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={closeMenu} />
           </ul>
         </div>
       </div>
