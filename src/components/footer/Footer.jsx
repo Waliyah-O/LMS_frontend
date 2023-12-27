@@ -10,7 +10,7 @@ import instagram from '../../assets/svg/instagram.svg';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer bg-gray-700 text-neutral-content flex flex-col md:flex-row justify-between items-center p-4 md:p-8">
+      <footer className="w-full footer bg-gray-700 text-neutral-content flex flex-col md:flex-row justify-between items-center p-4 md:p-8">
         <aside className="md:pl-16 mb-4 md:mb-0">
           <img src={academyLogo} alt="academy-logo" />
         </aside>

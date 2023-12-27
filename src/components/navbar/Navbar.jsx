@@ -25,7 +25,9 @@ const Navbar = () => {
       <nav className="bg-black text-white flex gap-12 h-20 items-center pt-6 p-4 md:pl-16">
         <div className="flex justify-between items-center w-full md:w-auto ">
           <div>
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="md:hidden">
             <MobileMenu menuItems={menuItems} />

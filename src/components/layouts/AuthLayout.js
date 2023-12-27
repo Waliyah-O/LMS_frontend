@@ -1,67 +1,94 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { ErrorUI } from '../error/ErrorUi';
 import { ReactComponent as ArrowNarrowLeft } from '../../assets/svg/arrow_narrow_left.svg';
+import authImg from '../../assets/images/authImg.png';
+import Navbar from '../navbar/Navbar';
+import Footer from '../footer/Footer';
 
 const AuthLayout = ({ children }) => {
   const location = useLocation();
   const linkTo = location.pathname === '/signup' ? '/signin' : '/signup';
 
-  const header = () => {
-    if (location.pathname === '/signup') {
-      return "Let's Get Started";
-    } else if (location.pathname === '/completeprofile') {
-      return 'Complete Profile';
-    } else if (location.pathname === '/signin') {
-      return 'Welcome Back!';
-    } else if (location.pathname === '/forgotpassword') {
-      return 'Forgot Password?';
-    } else if (location.pathname === '/passwordreset') {
-      return 'Create New Password.';
-    }
-  };
-
-  const subHeader = () => {
-    if (location.pathname === '/signup') {
-      return 'To sign up admin must fill in basic information below';
-    } else if (location.pathname === '/completeprofile') {
-      return 'Complete profile information to go on to assessment';
-    } else if (location.pathname === '/signin') {
-      return 'Please enter your information to access your Account.';
-    } else if (location.pathname === '/forgotpassword') {
-      return 'Please provide your email address to initiate the password reset process.';
-    } else if (location.pathname === '/passwordreset') {
-      return `To ensure unauthorised access is prevented, kindly reset 
-      your password using strong characters.`;
-    }
-  };
-
   return (
-    <div className="bg-authImage bg-contain bg-left bg-no-repeat w-screen flex items-center gap-32 bg-white md:p-5 lg:p-0">
-      <ErrorBoundary FallbackComponent={ErrorUI}>
-        <div className=" h-screen w-2/5  sm:w-2/5  hidden lg:block"></div>
-
-        <div className="sm:w-2/5 w-full flex-col items-end sm:p-2 p-4">
-          <Link to={location.pathname.includes('forgotpassword') ? '/signin' : '/'}>
-            <span className="text-black font-medium text-small flex gap-2 items-center">
-              <ArrowNarrowLeft /> {location.pathname.includes('forgotpassword') ? 'Go back to login' : 'Go Home'}
-            </span>
-          </Link>
-          <h1 className="my-2 lg:text-xl-heading text-green-500 font-semibold md:text-xl"> {header()}</h1>
-          <p className="mb-2 text-gray-900 md:text-sm"> {subHeader()}</p>
-          <div>
-            {children}
-            {(location.pathname === '/signup' || location.pathname === '/signin') && (
-              <p className=" text-black text-sm font-medium">
-                Have an account?{' '}
-                <Link to={linkTo} className="text-green-500">
-                  {location.pathname === '/signup' ? 'Sign In' : 'Sign Up'}
-                </Link>
-              </p>
-            )}
+    <div>
+      <Navbar />
+      <div className="w-full flex justify-evenly gap-24 bg-white md:p-5 lg:p-16">
+        <ErrorBoundary FallbackComponent={ErrorUI}>
+          <div className="relative [background-color:rgba(83,85,90,0.35)] [width:524px] [height:460px] rounded-3xl hidden lg:block">
+            <h3 className="font-extrabold text-white font-sora [font-size:32px] absolute top-20 right-6 ">Organization</h3>
+            <img className="[width:369px] [height:507px] absolute bottom-0 left-0" src={authImg} />
           </div>
-        </div>
-      </ErrorBoundary>
+
+          <div className="sm:w-full lg:w-3/5  flex-col items-center sm:p-2 p-4">
+            <div className="flex flex-col items-start gap-10">
+              <Link className="flex gap-2 items-center" to="/">
+                <ArrowNarrowLeft />
+                <span className="text-black font-medium text-small">Go Home</span>
+              </Link>
+              <div className="w-full lg:3/5 flex flex-col gap-6 items-start justify-center">
+                <nav className="gap-4 p-4 sm:w-full md:flex-row flex-col lg:flex  lg:flex-row w-full items-center inline-flex font-medium text-small ">
+                  <NavLink
+                    to="/signup"
+                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : ' py-4')}
+                  >
+                    New? Create an Account
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : ' py-4')}
+                    to="/signin"
+                  >
+                    Have an account? Sign in
+                  </NavLink>
+                </nav>
+                <div className="w-full sm:flex items-center justify-center sm:text-xl-heading md:items-start lg:text-xl-heading font-semibold [color:#53555A]">
+                  <h1 className="my-2 ">
+                    <Link to={linkTo}>{location.pathname.includes('signup') ? 'Create Account as...' : 'Sign in as ...'}</Link>
+                  </h1>
+                </div>
+
+                <div className="w-full mb-5">
+                  <nav className="flex items-center gap-6 md:flex-row md:justify-center lg:flex flex-col lg:justify-start">
+                    <NavLink
+                      to="."
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'py-2 px-5 [background-color:#D43325] rounded-lg  text-white'
+                          : 'py-2 px-5 [background-color:#E5E7EB] rounded-lg '
+                      }
+                    >
+                      Organization
+                    </NavLink>
+                    <NavLink
+                      to="tutor"
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'py-2 px-5 [background-color:#D43325] rounded-lg  text-white'
+                          : 'py-2 px-5 [background-color:#E5E7EB] rounded-lg '
+                      }
+                    >
+                      Tutor
+                    </NavLink>
+                    <NavLink
+                      to="student"
+                      className={({ isActive }) =>
+                        isActive
+                          ? 'py-2 px-5 [background-color:#D43325] rounded-lg  text-white'
+                          : 'py-2 px-5 [background-color:#E5E7EB] rounded-lg '
+                      }
+                    >
+                      Student
+                    </NavLink>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div>{children}</div>
+            <Outlet />
+          </div>
+        </ErrorBoundary>
+      </div>
+      <Footer />
     </div>
   );
 };

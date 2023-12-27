@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CustomInput from '../components/customInputs/CustomInputs';
-import AuthLayout from '../components/layouts/AuthLayout';
+// import AuthLayout from '../components/layouts/AuthLayout';
 import { ReactComponent as Eyelash } from '../assets/svg/eyeslash.svg';
 import { useFormik } from 'formik';
 import { ButtonSize, ButtonState } from '../components/button/enum';
@@ -66,7 +66,7 @@ const SignIn = () => {
   };
 
   return (
-    <AuthLayout>
+    // <AuthLayout>
       <form onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
         <CustomInput
           name={'email'}
@@ -104,7 +104,7 @@ const SignIn = () => {
           disabled={!formik.isValid || !formik.dirty}
         />
       </form>
-    </AuthLayout>
+    // </AuthLayout>
   );
 };
 
