@@ -41,7 +41,7 @@ const AuthLayout = ({ children }) => {
                     Have an account? Sign in
                   </NavLink>
                 </nav>
-                <div className="w-full sm:flex items-center justify-center sm:text-xl-heading md:items-start lg:text-xl-heading font-semibold [color:#53555A]">
+                <div className="w-full sm:flex items-center justify-start sm:text-xl-heading md:items-start lg:text-xl-heading font-semibold [color:#53555A]">
                   <h1 className="my-2 ">
                     <Link to={linkTo}>{location.pathname.includes('signup') ? 'Create Account as...' : 'Sign in as ...'}</Link>
                   </h1>
@@ -50,7 +50,7 @@ const AuthLayout = ({ children }) => {
                 <div className="w-full mb-5">
                   <nav className="flex items-center gap-6 md:flex-row md:justify-center lg:flex flex-col lg:justify-start">
                     <NavLink
-                      to="."
+                      to="organization"
                       className={({ isActive }) =>
                         isActive
                           ? 'py-2 px-5 [background-color:#D43325] rounded-lg  text-white'
