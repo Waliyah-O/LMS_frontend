@@ -27,15 +27,15 @@ const AuthLayout = ({ children }) => {
                 <span className="text-black font-medium text-small">Go Home</span>
               </Link>
               <div className="w-full lg:3/5 flex flex-col gap-6 items-start justify-center">
-                <nav className="gap-4 p-4 sm:w-full md:flex-row flex-col lg:flex  lg:flex-row w-full items-center inline-flex font-medium text-small ">
+                <nav className="gap-10 p-4 sm:w-full md:flex-row flex-col lg:flex  lg:flex-row w-full items-center inline-flex font-medium text-small ">
                   <NavLink
                     to="/signup"
-                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : ' py-4')}
+                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : 'py-4')}
                   >
                     New? Create an Account
                   </NavLink>
                   <NavLink
-                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : ' py-4')}
+                    className={({ isActive }) => (isActive ? 'text-red-650 border-b-2 border-red-650 py-4' : 'py-4')}
                     to="/signin"
                   >
                     Have an account? Sign in
@@ -43,7 +43,7 @@ const AuthLayout = ({ children }) => {
                 </nav>
                 <div className="w-full sm:flex items-center justify-start sm:text-xl-heading md:items-start lg:text-xl-heading font-semibold [color:#53555A]">
                   <h1 className="my-2">
-                    <Link to={linkTo}>{location.pathname.includes('signup') ? 'Create Account as...' : 'Sign in as ...'}</Link>
+                    <Link to={linkTo}>{location.pathname.includes('signup') ? 'Create Account as...' : 'Sign in'}</Link>
                   </h1>
                 </div>
 

@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
+import { useNavigate } from 'react-router-dom';
 
 const MobileMenu = ({ menuItems }) => {
+  const navigate = useNavigate();
   const closeMenu = () => {
     const drawerCheckbox = document.getElementById('my-drawer-4');
     if (drawerCheckbox) {
       drawerCheckbox.checked = false;
     }
+  };
+  const goToSignUp = () => {
+    navigate('/signup');
+  };
+  const goToDemo = () => {
+    navigate('/demo');
   };
 
   return (
@@ -24,7 +32,15 @@ const MobileMenu = ({ menuItems }) => {
 
         <div className="drawer-side">
           <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
+          <ul className=" menu p-4 w-80 min-h-full bg-white text-base-content">
+            <div className="w-full flex items-end justify-end">
+              <button onClick={closeMenu} className="btn btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
             {menuItems &&
               menuItems.map((item) => (
                 <li key={item.label}>
@@ -37,8 +53,8 @@ const MobileMenu = ({ menuItems }) => {
                   </Link>
                 </li>
               ))}
-            <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={closeMenu} />
-            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={closeMenu} />
+            <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={goToSignUp} />
+            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={goToDemo} />
           </ul>
         </div>
       </div>

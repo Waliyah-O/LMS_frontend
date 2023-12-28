@@ -3,8 +3,16 @@
 import ListComponent from '../customInputs/listComponent/ListComponent';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturesComponent = (props) => {
+  const navigate = useNavigate();
+  const goToSignUp = () => {
+    navigate('/signup');
+  };
+  const goToDemo = () => {
+    navigate('/demo');
+  };
   return (
     <div>
       <section className="bg-black font-sora">
@@ -18,8 +26,8 @@ const FeaturesComponent = (props) => {
               <ListComponent list="1111" />
             </div>
             <div className="flex gap-6">
-              <Button variant={ButtonSize.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-              <Button variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
+              <Button onClick={goToSignUp} variant={ButtonSize.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+              <Button onClick={goToDemo} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             </div>
           </div>
         </div>

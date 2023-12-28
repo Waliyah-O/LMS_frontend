@@ -12,6 +12,9 @@ const Hero = ({ mainText, isButton }) => {
   const goToSignUp = () => {
     navigate('/signup');
   };
+  const goToDemo = () => {
+    navigate('/demo');
+  };
 
   return (
     <div>
@@ -23,13 +26,13 @@ const Hero = ({ mainText, isButton }) => {
           className="h-screen flex flex-col"
         >
           <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
-            <Link to={'/why'}>Why i-Academy</Link>
-            <Link>Organization Benefits</Link>
-            <Link>FAQs</Link>
-            <Link>Contact us</Link>
+            <Link to="/why">Why i-Academy</Link>
+            <Link to="/benefits">Organization Benefits</Link>
+            <Link to="/faq">FAQs</Link>
+            <Link to="/contact">Contact us</Link>
 
             <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
-            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+            <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
           </header>
 
           <section className="flex flex-col items-center h-full gap-12 justify-around lg:gap-8 lg:h-1/2">
@@ -37,6 +40,7 @@ const Hero = ({ mainText, isButton }) => {
 
             {isButton && (
               <Button
+                onClick={goToDemo}
                 variant={ButtonState.SECONDARY}
                 size={ButtonSize.lg}
                 iconRight={<img src={arrowRight} alt="Arrow Right" />}
@@ -55,13 +59,13 @@ const Hero = ({ mainText, isButton }) => {
           className="h-screen"
         >
           <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
-            <Link>Why i-Academy</Link>
-            <Link>Organization Benefits</Link>
-            <Link>FAQs</Link>
-            <Link>Contact us</Link>
+            <Link to="/why">Why i-Academy</Link>
+            <Link to="/benefits">Organization Benefits</Link>
+            <Link to="/faq">FAQs</Link>
+            <Link to="/contact">Contact us</Link>
 
             <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
-            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+            <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
           </header>
 
           <aside className="w-full h-full flex flex-col items-center lg:items-start justify-center lg:justify-start gap-6 lg:flex-wrap  p-4 lg:p-16">
@@ -79,6 +83,7 @@ const Hero = ({ mainText, isButton }) => {
               size={ButtonSize.lg}
               iconRight={<img src={arrowRight} alt="Arrow Right" />}
               value="Book a demo"
+              onClick={goToDemo}
             />
           </aside>
         </section>

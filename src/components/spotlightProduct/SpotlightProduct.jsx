@@ -2,8 +2,14 @@ import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
 import SpotHeroImg from '../../assets/images/SpotHeroImg.jpeg';
 import arrowRight from '../../assets/svg/arrow-narrow-right.svg';
+import { useNavigate } from 'react-router-dom';
 
 const SpotlightProduct = () => {
+  const navigate = useNavigate();
+
+  const goToDemo = () => {
+    navigate('/demo');
+  };
   return (
     <div>
       <section
@@ -28,6 +34,7 @@ const SpotlightProduct = () => {
             size={ButtonSize.lg}
             iconRight={<img src={arrowRight} alt="Arrow Right" />}
             value="Book a demo"
+            onClick={goToDemo}
           />
         </aside>
       </section>

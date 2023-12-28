@@ -1,6 +1,7 @@
 import LogoBullets from '../../assets/svg/LogoBullets.svg';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
+import { useNavigate } from 'react-router-dom';
 
 const ListComponent = ({
   listItems = [],
@@ -13,6 +14,13 @@ const ListComponent = ({
   bg,
   flexDirection,
 }) => {
+  const navigate = useNavigate();
+  const goToSignUp = () => {
+    navigate('/signup');
+  };
+  const goToDemo = () => {
+    navigate('/demo');
+  };
   return (
     <div>
       <section className={`${bg} font-sora`}>
@@ -44,8 +52,8 @@ const ListComponent = ({
 
             {isButton && (
               <div className="flex flex-col lg:flex-row gap-3">
-                <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-                <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" />
+                <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
+                <Button onClick={goToSignUp} variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" />
               </div>
             )}
           </div>
