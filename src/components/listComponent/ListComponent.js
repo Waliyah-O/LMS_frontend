@@ -24,7 +24,7 @@ const ListComponent = ({
   return (
     <div>
       <section className={`${bg} font-sora`}>
-        <div className={`w-full p-4 lg:p-24 flex flex-col items-center py-6 lg:${flexDirection} gap-8`}>
+        <div className={`w-full items-center p-4 md:flex ${flexDirection} gap-8 lg:p-24`}>
           <div className="p-3 lg:w-1/2">
             <img src={src} className="rounded-md" alt="Image" />
           </div>

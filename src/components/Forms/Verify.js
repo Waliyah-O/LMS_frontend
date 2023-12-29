@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setOTP } from '../../redux/actions/auth.actions';
 
-
 const VerifyOTP = () => {
   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
   const inputRefs = [useRef(), useRef(), useRef(), useRef(), useRef(), useRef()];
@@ -18,7 +17,7 @@ const VerifyOTP = () => {
   }, [otpValues]);
 
   const handleInputChange = (index, value) => {
-    if (isNaN(value) && value !== ' ') {
+    if (!isNaN(value) && value !== ' ') {
       const newOtpValues = [...otpValues];
       newOtpValues[index] = value;
       setOtpValues(newOtpValues);
