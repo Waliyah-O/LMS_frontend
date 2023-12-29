@@ -27,7 +27,6 @@ module.exports = {
         red: {
           650: '#D43325',
           550: '#FD0000',
-          
         },
       },
     },
@@ -151,6 +150,13 @@ module.exports = {
           letterSpacing: '-2%',
         },
       ],
+      'lg-heading': [
+        '36px',
+        {
+          letterSpacing: '-2%',
+          lineHeight: '125%',
+        },
+      ],
       'xl-heading': [
         '40px',
         {
@@ -175,7 +181,7 @@ module.exports = {
     },
     backgroundImage: {
       authImage: "url('../src/assets/images/AuthPageImage.jpg')",
-      authImg: "url(../src/assets/images/authImg.png)",
+      authImg: 'url(../src/assets/images/authImg.png)',
       bgImage: "url('../src/assets/images/BgImg.jpeg')",
       courseMgtBg: "url('../src/assets/images/BgImg.jpeg')",
       userMgtBg: "url('../src/assets/images/courseManagement.png')",

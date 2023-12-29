@@ -13,18 +13,18 @@ const Accordion = ({ content }) => {
   };
 
   return (
-    <div>
+    <div className="font-inter">
       {content.map((item) => (
-        <div key={item.id} className="collapse collapse-arrow bg-base-200 my-3 mx-auto w-4/5">
+        <div key={item.id} className="collapse collapse-arrow border rounded-sm bg-base-200 my-0 mx-auto w-4/5">
           <input
             type="radio"
             name="my-accordion-2"
             checked={openAccordions[item.id]}
             onChange={() => handleToggleAccordion(item.id)}
           />
-          <div className="collapse-title text-lg font-medium">{item.question}</div>
-          <div className={`collapse-content ${openAccordions[item.id] ? 'open' : ''}`}>
-            <p>{item.response}</p>
+          <div className="collapse-title text-lg text-gray-900 font-medium">{item.question}</div>
+          <div className={`bg-white collapse-content ${openAccordions[item.id] ? 'open' : ''}`}>
+            <p className="p-1 text-gray-500">{item.response}</p>
           </div>
         </div>
       ))}
