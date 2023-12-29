@@ -7,7 +7,7 @@ import { listContent } from './whyData';
 const WhyPage = () => {
   return (
     <div>
-      <Hero mainText={'Empowering Young Africans with Essential Tech Skills for Lucrative Careers'} isButton={true} />
+      <Hero mainText={`Empowering Young Africans\nwith Essential Tech Skills for\nLucrative Careers`} isButton={true} />
 
       <section>
         <ListComponent

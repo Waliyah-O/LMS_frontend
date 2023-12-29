@@ -7,7 +7,7 @@ import { listContent, listContentTwo } from './orgData';
 const OrganizationBenefits = () => {
   return (
     <div>
-      <Hero mainText={'Leveraging  Seamless Employee Training Adherence'} isButton={true} />
+      <Hero mainText={`Leveraging Seamless Employee\nTraining Adherence`} isButton={true} />
 
       <section>
         <ListComponent

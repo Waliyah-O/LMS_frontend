@@ -36,7 +36,12 @@ const Hero = ({ mainText, isButton }) => {
           </header>
 
           <section className="flex flex-col items-center h-full gap-12 justify-around lg:gap-8 lg:h-3/6 my-12">
-            <h1 className="text-white font-sora font-extrabold text-xl lg:text-xxl-heading lg:w-3/5 text-center">{mainText}</h1>
+            <h1
+              style={{ whiteSpace: 'pre-line' }}
+              className="text-white font-sora font-extrabold text-xl lg:text-xxl-heading lg:w-full text-center"
+            >
+              {mainText}
+            </h1>
 
             {isButton && (
               <Button

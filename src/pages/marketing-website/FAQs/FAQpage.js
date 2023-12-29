@@ -6,7 +6,7 @@ import { faqs } from './faqData';
 const FAQpage = () => {
   return (
     <div>
-      <Hero mainText={'Frequently Asked Questions'} />
+      <Hero mainText={`Frequently Asked\nQuestions`} />
 
       <section>
         <h3>Got Questions? Check Out Our FAQs</h3>
