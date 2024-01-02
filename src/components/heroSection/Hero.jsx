@@ -1,6 +1,6 @@
 import heroImg from '../../assets/images/heroImg.jpeg';
 import BgImg from '../../assets/images/BgImg.jpeg';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
 import arrowRight from '../../assets/svg/arrow-narrow-right.svg';
@@ -26,10 +26,18 @@ const Hero = ({ mainText, isButton }) => {
           className="h-screen flex flex-col"
         >
           <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
-            <Link to="/why">Why i-Academy</Link>
-            <Link to="/benefits">Organization Benefits</Link>
-            <Link to="/faq">FAQs</Link>
-            <Link to="/contact">Contact us</Link>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/why">
+              Why i-Academy
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/benefits">
+              Organization Benefits
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/faq">
+              FAQs
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/contact">
+              Contact us
+            </NavLink>
 
             <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
@@ -64,10 +72,18 @@ const Hero = ({ mainText, isButton }) => {
           className="h-screen"
         >
           <header className="text-white text-sm hidden lg:flex flex-col lg:flex-row lg:justify-end items-center gap-3 p-4 lg:p-7 mx-4 lg:mx-14 font-inter">
-            <Link to="/why">Why i-Academy</Link>
-            <Link to="/benefits">Organization Benefits</Link>
-            <Link to="/faq">FAQs</Link>
-            <Link to="/contact">Contact us</Link>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/why">
+              Why i-Academy
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/benefits">
+              Organization Benefits
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/faq">
+              FAQs
+            </NavLink>
+            <NavLink className={({ isActive }) => [isActive ? 'border-b-2' : '']} to="/contact">
+              Contact us
+            </NavLink>
 
             <Button onClick={goToSignUp} variant={ButtonState.TRANSPARENT} size={ButtonSize.md} value="Sign Up" />
             <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />

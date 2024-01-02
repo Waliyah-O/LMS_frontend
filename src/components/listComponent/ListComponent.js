@@ -24,26 +24,28 @@ const ListComponent = ({
   return (
     <div>
       <section className={`${bg} font-sora`}>
-        <div className={`w-full items-center p-4 md:flex ${flexDirection} gap-8 lg:p-24`}>
-          <div className="p-3 lg:w-1/2">
+        <div className={`w-full items-center p-4 md:flex ${flexDirection} gap-8 lg:p-8`}>
+          <div className="p-3 lg:w-auto">
             <img src={src} className="rounded-md" alt="Image" />
           </div>
 
-          <div className={`w-full ${listTextColor} lg:w-1/2 gap-6 flex flex-col justify-between p-10`}>
-            <h3 className="font-sora font-semibold text-xl lg:text-iv">{headerText}</h3>
+          <div className={`w-full ${listTextColor} lg:w-3/5 gap-1 flex flex-col justify-between p-10`}>
+            <h3 className="font-sora font-semibold text-xl text-gray-600 lg:text-lg-heading">{headerText}</h3>
+
+            <div className="divider mt-1 w-full"></div>
 
             <div>
               {listItems ? (
                 <ul className="font-inter text-labels list-none">
                   {listItems.map((item) => (
-                    <li key={item.id} className="flex items-center gap-3 p-2 my-1">
-                      <img className="h-8 w-8" src={LogoBullets} />
-                      <span>{item.element}</span>
+                    <li key={item.id} className="flex items-center gap-3 my-4">
+                      <img className="h-10 w-10" src={LogoBullets} />
+                      <span className="flex-1 text-base leading-tight text-gray-500 font-medium">{item.element}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <section className="flex flex-col gap-6">
+                <section className="flex flex-col gap-6 text-gray-500">
                   <p>{bodyTextOne}</p>
                   <p>{bodyTextTwo}</p>
                 </section>

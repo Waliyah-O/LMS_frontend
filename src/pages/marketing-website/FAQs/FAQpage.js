@@ -7,10 +7,13 @@ const FAQpage = () => {
   return (
     <div>
       <Hero mainText={`Frequently Asked\nQuestions`} />
-      <section className="flex flex-col items-center justify-evenly h-full">
-        <h1 className="font-inter font-extrabold text-lg-heading">Got Questions? Check Out Our FAQs</h1>
-        <div className="divider w-4/5 m-auto"></div>
+      <section className="flex flex-col items-start justify-evenly gap-10 h-full">
+        <h1 className="font-inter font-extrabold text-lg md:text-lg-heading w-5/6 mx-auto pt-8">
+          Got Questions? Check Out Our FAQs
+        </h1>
+        <div className="divider w-5/6 m-auto"></div>
         <Accordion content={faqs} />
+        <div></div>
       </section>
       <SpotlightProduct />
     </div>

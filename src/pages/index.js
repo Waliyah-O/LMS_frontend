@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Index = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1 className=''>Dashboard</h1>
       <Link to={'./signup'}>Signup</Link> <br />
       <Link to={'./completeprofile'}>complete profile</Link> <br />
       <Link to={'./signin'}>Signin</Link> <br />

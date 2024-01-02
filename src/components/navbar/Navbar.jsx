@@ -1,16 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import logo from '../../assets/svg/academy-logo-red-icon.svg';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import MobileMenu from '../mobileMenu';
 
 const Navbar = () => {
-  const [selectedTab, setSelectedTab] = useState(null);
-
-  const handleTabClick = (tab) => {
-    setSelectedTab(tab);
-  };
-
   const menuItems = [
     { label: 'For Candidates', to: '#' },
     { label: 'For Organizations', to: '#' },
@@ -22,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-black text-white flex gap-12 h-20 items-center pt-6 p-4 md:pl-16">
+      <nav className="bg-black text-white flex gap-12 h-20 items-center pt-11 p-4 md:pl-16">
         <div className="flex justify-between items-center w-full md:w-auto ">
           <div>
             <Link to="/">
@@ -35,26 +29,13 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex gap-10 font-medium">
-          <Link
-            className={`cursor-pointer ${
-              selectedTab === 'candidates'
-                ? 'border-b-2 border-red-500 text-red-500'
-                : 'border-b-2 border-transparent hover:border-red-500'
-            }`}
-            onClick={() => handleTabClick('candidates')}
-          >
+          <NavLink className={({ isActive }) => [isActive ? 'border-b-2 border-red-500 text-red-500' : '']} to="/dashboard">
             For Candidates
-          </Link>
-          <Link
-            className={`cursor-pointer ${
-              selectedTab === 'organization'
-                ? 'border-b-2 border-red-500 text-red-500'
-                : 'border-b-2 border-transparent hover:border-red-500'
-            }`}
-            onClick={() => handleTabClick('organization')}
-          >
+          </NavLink>
+
+          <NavLink className={({ isActive }) => [isActive ? 'border-b-2 border-red-500 text-red-500' : '']} to="/">
             For Organizations
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </div>

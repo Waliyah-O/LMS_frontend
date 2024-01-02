@@ -1,8 +1,11 @@
-
 const ContactPage = () => {
   return (
-	<div>ContactPage</div>
-  )
-}
+    <div>
+      <div>
+        <h1 className="text-lg-heading">Contact Us</h1>
+      </div>
+    </div>
+  );
+};
 
-export default ContactPage
+export default ContactPage;
