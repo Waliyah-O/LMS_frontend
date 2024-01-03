@@ -26,7 +26,7 @@ function AllRoutes() {
         <Route path="why" element={<WhyPage />} />
         <Route path="benefits" element={<OrganizationBenefits />} />
         <Route path="faq" element={<FAQpage />} />
-        <Route path="demo" element={<ContactPage />} />
+        <Route path="contact" element={<ContactPage />} />
       </Route>
       {/* <Protected> */}
       <Route path="signup" element={<AuthLayout />}>

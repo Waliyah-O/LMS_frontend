@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
 import logo from '../../assets/svg/academy-logo-red-icon.svg';
 import { NavLink, Link } from 'react-router-dom';
 import MobileMenu from '../mobileMenu';
@@ -16,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-black text-white flex gap-12 h-20 items-center pt-11 p-4 md:pl-16">
+      <nav className="bg-black text-white flex gap-12 h-20 items-center pt-12 p-4 md:pl-16">
         <div className="flex justify-between items-center w-full md:w-auto ">
           <div>
             <Link to="/">
@@ -29,11 +28,25 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex gap-10 font-medium">
-          <NavLink className={({ isActive }) => [isActive ? 'border-b-2 border-red-500 text-red-500' : '']} to="/dashboard">
+          <NavLink
+            className={({ isActive }) => [
+              isActive
+                ? 'py-2 border-b-2 border-red-500 text-red-500'
+                : 'py-2 border-transparent border-b-2 hover:border-red-500',
+            ]}
+            to="/dashboard"
+          >
             For Candidates
           </NavLink>
 
-          <NavLink className={({ isActive }) => [isActive ? 'border-b-2 border-red-500 text-red-500' : '']} to="/">
+          <NavLink
+            className={({ isActive }) => [
+              isActive
+                ? ' py-2 border-b-2 border-red-500 text-red-500'
+                : 'py-2 border-transparent border-b-2 hover:border-red-500',
+            ]}
+            to="/"
+          >
             For Organizations
           </NavLink>
         </div>
