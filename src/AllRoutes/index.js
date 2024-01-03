@@ -15,7 +15,7 @@ import GettingStarted from '../components/Forms/Admin/GettingStarted';
 import TutorSignUp from '../pages/TutorSignUp';
 import StudentSignUp from '../pages/StudentSignUp';
 import FAQpage from '../pages/marketing-website/FAQs/FAQpage';
-import ContactPage from '../pages/marketing-website/ContactPage.js';
+import ContactPage from '../pages/marketing-website/ContactUs/ContactPage.js';
 import VerifyEmailPage from '../pages/VerifyEmailPage.js';
 
 function AllRoutes() {

@@ -15,6 +15,7 @@ const FAQpage = () => {
         <Accordion content={faqs} />
         <div></div>
       </section>
+
       <SpotlightProduct />
     </div>
   );

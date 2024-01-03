@@ -15,7 +15,7 @@ const TextArea = ({
   readOnly,
 }) => {
   return (
-    <div className="form-control w-full ">
+    <div className="form-control w-full">
       <label className="label" htmlFor={id}>
         <span className="label-text text-gray-900 font-medium">{labelText}</span>
         <span className="label-text-alt">{labelRightText}</span>
@@ -28,7 +28,7 @@ const TextArea = ({
           onChange={onChange}
           readOnly={readOnly}
           value={value}
-          className={`textarea textarea-bordered w-1/3 ${inputError ? 'input-error' : ''} ${className || ''}`}
+          className={`textarea textarea-bordered w-full ${inputError ? 'input-error' : ''} ${className || ''}`}
           placeholder={placeholder}
         ></textarea>
       </div>

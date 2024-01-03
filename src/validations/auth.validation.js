@@ -62,3 +62,13 @@ export const PasswordResetSchema = () => {
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   });
 };
+
+export const ContactUsForm = () => {
+  return Yup.object({
+    firstName: Yup.string().required('Enter your first name'),
+    lastName: Yup.string().required('Enter your last name'),
+    email: Yup.string().required('Enter your email'),
+    phoneNum: Yup.string().required('Enter your phone number'),
+    message: Yup.string().required('Enter your message'),
+  });
+};
