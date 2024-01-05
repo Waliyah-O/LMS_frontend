@@ -17,6 +17,7 @@ import StudentSignUp from '../pages/StudentSignUp';
 import FAQpage from '../pages/marketing-website/FAQs/FAQpage';
 import ContactPage from '../pages/marketing-website/ContactUs/ContactPage.js';
 import VerifyEmailPage from '../pages/VerifyEmailPage.js';
+import DemoPage from '../pages/marketing-website/DemoPage/DemoPage.js';
 
 function AllRoutes() {
   return (
@@ -27,6 +28,7 @@ function AllRoutes() {
         <Route path="benefits" element={<OrganizationBenefits />} />
         <Route path="faq" element={<FAQpage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="demo" element={<DemoPage />} />
       </Route>
       {/* <Protected> */}
       <Route path="signup" element={<AuthLayout />}>

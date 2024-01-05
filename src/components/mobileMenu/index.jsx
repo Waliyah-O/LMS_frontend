@@ -1,19 +1,22 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Button from '../button';
 import { ButtonSize, ButtonState } from '../button/enum';
 import { useNavigate } from 'react-router-dom';
 
 const MobileMenu = ({ menuItems }) => {
   const navigate = useNavigate();
+
   const closeMenu = () => {
     const drawerCheckbox = document.getElementById('my-drawer-4');
     if (drawerCheckbox) {
       drawerCheckbox.checked = false;
     }
   };
+
   const goToSignUp = () => {
     navigate('/signup');
   };
+
   const goToDemo = () => {
     navigate('/demo');
   };
@@ -44,17 +47,30 @@ const MobileMenu = ({ menuItems }) => {
             {menuItems &&
               menuItems.map((item) => (
                 <li key={item.label}>
-                  <Link
+                  <NavLink
+                    className={({ isActive }) => [
+                      isActive
+                        ? 'font-bold bg-transparent border-b-2 border-red-500 text-red-500 p-4 my-2"'
+                        : 'font-semibold p-4 my-3',
+                    ]}
+                    to={item.to}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </NavLink>
+                  {/* <Link
                     className="font-bold bg-transparent hover:border-b-2 border-red-500 p-4 my-2"
                     to={item.to}
                     onClick={closeMenu}
                   >
                     {item.label}
-                  </Link>
+                  </Link> */}
                 </li>
               ))}
-            <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={goToSignUp} />
-            <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={goToDemo} />
+            <div className="my-6 gap-1 w-full flex flex-col border">
+              <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={goToSignUp} />
+              <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={goToDemo} />
+            </div>
           </ul>
         </div>
       </div>

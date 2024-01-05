@@ -5,8 +5,8 @@ import MobileMenu from '../mobileMenu';
 
 const Navbar = () => {
   const menuItems = [
-    { label: 'For Candidates', to: '#' },
-    { label: 'For Organizations', to: '#' },
+    { label: 'For Candidates', to: '/dashboard' },
+    { label: 'For Organizations', to: '/' },
     { label: 'Why i-Academy', to: 'why' },
     { label: 'Organization Benefits', to: 'benefits' },
     { label: 'FAQs', to: 'faq' },
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-black text-white flex gap-12 h-20 items-center pt-12 p-4 md:pl-16">
+      <nav className="bg-black text-white flex gap-12 h-16 items-center pt-9 p-4 md:pl-16">
         <div className="flex justify-between items-center w-full md:w-auto ">
           <div>
             <Link to="/">
@@ -40,11 +40,12 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            className={({ isActive }) => [
-              isActive
-                ? ' py-2 border-b-2 border-red-500 text-red-500'
-                : 'py-2 border-transparent border-b-2 hover:border-red-500',
-            ]}
+            // className={({ isActive }) => [
+            //   isActive
+            //     ? ' py-2 border-b-2 border-red-500 text-red-500'
+            //     : 'py-2 border-transparent border-b-2 hover:border-red-500',
+            // ]}
+            className="py-2 border-b-2 border-red-500 text-red-500"
             to="/"
           >
             For Organizations

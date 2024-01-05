@@ -29,7 +29,7 @@ const ListComponent = ({
             <img src={src} className="rounded-md" alt="Image" />
           </div>
 
-          <div className={`w-full ${listTextColor} lg:w-3/5 gap-1 flex flex-col justify-between p-10`}>
+          <div className={`w-full ${listTextColor} p-2 lg:w-3/5 gap-1 flex flex-col justify-between lg:p-10`}>
             <h3 className="font-sora font-semibold text-xl text-gray-600 lg:text-lg-heading">{headerText}</h3>
 
             <div className="divider mt-1 w-full"></div>
@@ -40,7 +40,7 @@ const ListComponent = ({
                   {listItems.map((item) => (
                     <li key={item.id} className="flex items-center gap-3 my-4">
                       <img className="h-10 w-10" src={LogoBullets} />
-                      <span className="flex-1 text-base leading-tight text-gray-500 font-medium">{item.element}</span>
+                      <span className="flex-1 text-sm leading-tight text-gray-500 font-medium md:text-base">{item.element}</span>
                     </li>
                   ))}
                 </ul>
