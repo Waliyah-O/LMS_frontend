@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import { apiSlice } from "../redux/slices/apiSlice";
-import { storageService } from "./index";
 
 const extendedApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
