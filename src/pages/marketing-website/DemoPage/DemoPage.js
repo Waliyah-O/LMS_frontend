@@ -22,9 +22,12 @@ const DemoPage = () => {
     <div>
       <Hero mainText={`Get in Touch\nConnect with Us Today`} />
 
-      <section>
-        <aside>
+      <section className="flex">
+        <div>
           <img src={demoImg} />
+        </div>
+
+        <aside>
           <h1 className="font-inter font-bold text-lg-heading">Request a Live Demo</h1>
           <p>{`We're here to help! Contact our experts for personalised guidance and support on your financial journey.`}</p>
           <form onSubmit={formik.handleSubmit}>
@@ -32,7 +35,7 @@ const DemoPage = () => {
             <CustomRadioButton options={checkboxOptions} />
             <CustomInput labelText="Email" type={'email'} />
             <CustomInput labelText="Organisation (business or corporate body)" type={'text'} />
-            <CustomSelect labelText={'How did you learn about iaLMS?'} options={discoveredBy} optionText={'Select an option'} />
+            <CustomSelect labelText={'How did you learn about i-LMS?'} options={discoveredBy} optionText={'Select an option'} />
 
             <div className="flex">
               <Button value="Cancel" variant={ButtonState.LIST} />

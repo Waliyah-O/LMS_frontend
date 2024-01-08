@@ -16,18 +16,18 @@ const Navbar = () => {
   return (
     <div>
       <nav className="bg-black text-white flex gap-12 h-16 items-center pt-9 p-4 md:pl-16">
-        <div className="flex justify-between items-center w-full md:w-auto ">
+        <div className="flex justify-between items-center w-full lg:w-auto ">
           <div>
             <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
           </div>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <MobileMenu menuItems={menuItems} />
           </div>
         </div>
 
-        <div className="hidden md:flex gap-10 font-medium">
+        <div className="hidden lg:flex gap-10 font-medium">
           <NavLink
             className={({ isActive }) => [
               isActive

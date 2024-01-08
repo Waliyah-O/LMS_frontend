@@ -68,7 +68,7 @@ const MobileMenu = ({ menuItems }) => {
                 </li>
               ))}
             <div className="my-6 gap-1 w-full flex flex-col border">
-              <Button variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" onClick={goToSignUp} />
+              <Button variant={ButtonState.LIST} size={ButtonSize.md} value="Sign Up" onClick={goToSignUp} />
               <Button variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" onClick={goToDemo} />
             </div>
           </ul>
