@@ -5,7 +5,7 @@ import TextArea from '../../../components/customInputs/TextArea';
 import CustomInput from '../../../components/customInputs/CustomInputs';
 import { ContactUsForm } from '../../../validations/auth.validation';
 import SpotlightProduct from '../../../components/spotlightProduct/SpotlightProduct';
-import { toast } from 'react-toastify';
+import { showToast } from '../../../utils';
 
 const ContactPage = () => {
   const [isLoading, setLoading] = useState(false);
@@ -23,7 +23,7 @@ const ContactPage = () => {
       setLoading(true);
 
       setTimeout(() => {
-        toast.success(
+        showToast(
           <>
             Message Sent <br />
           </>,

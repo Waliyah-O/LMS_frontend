@@ -7,10 +7,10 @@ const Navbar = () => {
   const menuItems = [
     { label: 'For Candidates', to: '/dashboard' },
     { label: 'For Organizations', to: '/' },
-    { label: 'Why i-Academy', to: 'why' },
-    { label: 'Organization Benefits', to: 'benefits' },
-    { label: 'FAQs', to: 'faq' },
-    { label: 'Contact us', to: 'contact' },
+    { label: 'Why i-Academy', to: '/why' },
+    { label: 'Organization Benefits', to: '/benefits' },
+    { label: 'FAQs', to: '/faq' },
+    { label: 'Contact us', to: '/contact' },
   ];
 
   return (

@@ -3,6 +3,7 @@ import ListComponent from '../../../components/listComponent/ListComponent';
 import imgOne from '../../../assets/images/benefitsImgOne.png';
 import imgTwo from '../../../assets/images/benefitsImgTwo.png';
 import { listContent, listContentTwo } from './orgData';
+import { ButtonState } from '../../../components/button/enum';
 
 const OrganizationBenefits = () => {
   return (
@@ -15,6 +16,8 @@ const OrganizationBenefits = () => {
           src={imgOne}
           flexDirection={'flex-row'}
           listItems={listContent}
+          headerTextColor={'text-gray-600'}
+          listTextColor={'text-gray-600'}
         />
       </section>
 
@@ -25,6 +28,9 @@ const OrganizationBenefits = () => {
           flexDirection={'flex-row-reverse'}
           listItems={listContentTwo}
           isButton={true}
+          variant={ButtonState.LIST}
+          headerTextColor={'text-gray-600'}
+          listTextColor={'text-gray-600'}
         />
       </section>
     </div>

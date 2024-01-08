@@ -30,18 +30,22 @@ function AllRoutes() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="demo" element={<DemoPage />} />
       </Route>
+
       {/* <Protected> */}
       <Route path="signup" element={<AuthLayout />}>
         <Route path="organization" element={<GettingStarted />} />
         <Route path="tutor" element={<TutorSignUp />} />
         <Route path="student" element={<StudentSignUp />} />
       </Route>
+
       <Route path="verify" element={<VerifyEmailPage />} />
+
       <Route path="signin" element={<AuthLayout />}>
         <Route path="organization" element={<SignIn />} />
         <Route path="tutor" element={<SignIn />} />
         <Route path="student" element={<SignIn />} />
       </Route>
+
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/completeprofile" element={<CompleteProfile />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />

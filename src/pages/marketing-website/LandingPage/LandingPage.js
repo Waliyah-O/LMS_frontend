@@ -4,6 +4,7 @@ import Card from '../../../components/cards/Card';
 import ListComponent from '../../../components/listComponent/ListComponent';
 import Hero from '../../../components/heroSection/Hero';
 import { listContent, featuresContent } from './landingPageData';
+import { ButtonState } from '../../../components/button/enum';
 
 const LandingPage = () => {
   return (
@@ -55,8 +56,10 @@ const LandingPage = () => {
         src={lastImg}
         headerText={'Empower your business with a victorious digital advantage.'}
         listItems={listContent}
-        listTextColor={'text-white'}
+        headerTextColor={'text-white'}
         isButton={true}
+        listTextColor={'text-white'}
+        variant={ButtonState.HOME}
       />
     </div>
   );

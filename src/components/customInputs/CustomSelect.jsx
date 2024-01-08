@@ -19,7 +19,7 @@ const CustomSelect = ({
     <div>
       <div className="form-control w-full">
         <label className="label">
-          <span className="label-text">{labelText}</span>
+          <span className="label-text font-medium">{labelText}</span>
           <span className="label-text-alt">{rightLabel}</span>
         </label>
 

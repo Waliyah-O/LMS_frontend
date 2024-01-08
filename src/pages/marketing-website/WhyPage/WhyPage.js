@@ -3,6 +3,7 @@ import ListComponent from '../../../components/listComponent/ListComponent';
 import imgOne from '../../../assets/images/whyPageImgOne.png';
 import imgTwo from '../../../assets/images/whyPageImgTwo.png';
 import { listContent } from './whyData';
+import { ButtonState } from '../../../components/button/enum';
 
 const WhyPage = () => {
   return (
@@ -30,10 +31,13 @@ const WhyPage = () => {
         <ListComponent
           bg={'bg-white'}
           src={imgTwo}
-          headerText={'Excellence in Learning with Cutting-Edge Goals.'}
+          headerText={`Excellence in Learning with\nCutting-Edge Goals.`}
           listItems={listContent}
           flexDirection={'flex-row-reverse'}
           isButton={true}
+          variant={ButtonState.LIST}
+          headerTextColor={'text-gray-600'}
+          listTextColor={'text-gray-600'}
         />
       </section>
     </div>

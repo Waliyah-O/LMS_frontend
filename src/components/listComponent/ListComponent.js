@@ -7,12 +7,14 @@ const ListComponent = ({
   listItems = [],
   headerText,
   src,
-  listTextColor,
+  headerTextColor,
   bodyTextOne,
   bodyTextTwo,
   isButton,
   bg,
   flexDirection,
+  listTextColor,
+  variant,
 }) => {
   const navigate = useNavigate();
   const goToSignUp = () => {
@@ -29,8 +31,13 @@ const ListComponent = ({
             <img src={src} className="rounded-md" alt="Image" />
           </div>
 
-          <div className={`w-full ${listTextColor} p-2 lg:w-3/5 gap-1 flex flex-col justify-between lg:p-10`}>
-            <h3 className="font-sora font-semibold text-xl text-gray-600 lg:text-lg-heading">{headerText}</h3>
+          <div className={`w-full p-2 lg:w-3/5 gap-1 flex flex-col justify-between lg:p-10`}>
+            <h3
+              style={{ whiteSpace: 'pre-line' }}
+              className={`font-sora font-semibold text-xl ${headerTextColor} lg:text-lg-heading`}
+            >
+              {headerText}
+            </h3>
 
             <div className="divider mt-1 w-full"></div>
 
@@ -40,7 +47,9 @@ const ListComponent = ({
                   {listItems.map((item) => (
                     <li key={item.id} className="flex items-center gap-3 my-4">
                       <img className="h-10 w-10" src={LogoBullets} />
-                      <span className="flex-1 text-sm leading-tight text-gray-500 font-medium md:text-base">{item.element}</span>
+                      <span className={`flex-1 text-sm leading-tight ${listTextColor} font-medium md:text-base`}>
+                        {item.element}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -55,7 +64,7 @@ const ListComponent = ({
             {isButton && (
               <div className="flex flex-col lg:flex-row gap-3">
                 <Button onClick={goToDemo} variant={ButtonState.SECONDARY} size={ButtonSize.md} value="Book a demo" />
-                <Button onClick={goToSignUp} variant={ButtonState.MOBILE} size={ButtonSize.md} value="Sign Up" />
+                <Button onClick={goToSignUp} variant={variant} size={ButtonSize.md} value="Sign Up" />
               </div>
             )}
           </div>
